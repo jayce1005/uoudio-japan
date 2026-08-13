@@ -11,6 +11,7 @@ export type Product = {
   gallery?: { src: string; alt: string }[];
   banner?: string;
   amazonUrl?: string;
+  price?: number;
 };
 
 export const products: Product[] = [
@@ -32,19 +33,43 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "s21", model: "S21", image: "/s21-main.jpg", type: "BALANCED & VERSATILE",
-    tagline: "音を、もっと自由に。",
-    description: "20Wサウンド、EQモード、デジタル表示をひとつに。家でも外でも使いやすいバランスモデルです。",
-    tags: ["20W", "IPX6", "TWS", "EQ"],
+    slug: "s21", model: "S21", image: "/s21-main.jpg", type: "20W / DSP / 24H PLAYBACK",
+    tagline: "20Wの音を、一日中どこへでも。",
+    description: "20W出力とDSPサウンド処理を備えたポータブルBluetoothスピーカー。最大24時間再生、音量・バッテリー残量のデジタル表示、2種類のEQ、RGBライト、IPX6防水に対応します。",
+    tags: ["20W + DSP", "最大24時間", "IPX6", "デジタル表示"],
+    amazonUrl: "https://www.amazon.co.jp/dp/B0H2V7R7Q2",
+    price: 3699,
     specs: [
-      { label: "定格出力", value: "20W" }, { label: "防水性能", value: "IPX6" },
-      { label: "ステレオ", value: "TWS対応" }, { label: "音質調整", value: "EQモード" },
+      { label: "定格出力", value: "20W" },
+      { label: "音質処理", value: "DSPサウンド処理" },
+      { label: "Bluetooth", value: "Bluetooth 5.4" },
+      { label: "連続再生", value: "最大24時間", note: "音量30％・RGBライトOFF時の目安" },
+      { label: "デジタル表示", value: "接続モード / バッテリー残量 / 音量" },
+      { label: "音質調整", value: "2種類のEQモード" },
+      { label: "ライト", value: "RGBライト / 消灯可能" },
+      { label: "ステレオ", value: "TWS対応", note: "同一モデルが2台必要です" },
+      { label: "再生方法", value: "Bluetooth / AUX / USBメモリー / TFカード" },
+      { label: "防水性能", value: "IPX6", note: "水中使用・丸洗いには非対応" },
+      { label: "充電", value: "USB Type-C" },
+      { label: "携帯性", value: "吊り下げストラップ付き" },
     ],
     features: [
-      { title: "20Wサウンド", text: "コンパクトなボディから、日常にもアウトドアにも心地よいサウンドを届けます。" },
-      { title: "IPX6防水", text: "突然の雨や水しぶきに配慮した生活防水設計です。" },
-      { title: "TWSステレオ", text: "S21を2台ペアリングすれば、左右に広がるステレオ再生を楽しめます。" },
-      { title: "EQ & デジタル表示", text: "音質を切り替え、バッテリー残量や音量もひと目で確認できます。" },
+      { title: "20W大音量・DSPサウンド処理", text: "DSPで音のバランスを整え、低音から中高音まで聞き取りやすく再生。音楽、動画、ラジオ、ポッドキャストなどを、屋内外でクリアに楽しめます。" },
+      { title: "最大24時間・Type-C充電", text: "音量30％・RGBライトOFF時で最大24時間の連続再生に対応。自宅での長時間使用はもちろん、旅行やキャンプにも便利です。" },
+      { title: "音量・バッテリーのデジタル表示", text: "接続中はBT・AUX・USBのモードを表示。一時停止中はバッテリー残量、＋／－ボタン操作時は音量レベルを数字で確認できます。" },
+      { title: "RGBライト・2種類のEQ", text: "音楽の雰囲気を高めるRGBライトを搭載し、消灯にも対応。2種類のEQモードから、曲や使用シーンに合わせたサウンドを選べます。" },
+      { title: "Bluetooth 5.4・TWS・IPX6", text: "Bluetooth、AUX、USBメモリー、TFカード再生に対応。同一モデル2台でTWSステレオを楽しめ、IPX6防水とストラップで屋外にも持ち出しやすい設計です。" },
+    ],
+    banner: "/s21-banner.jpg",
+    gallery: [
+      { src: "/s21-sound.jpg", alt: "S21 20W大音量サウンド" },
+      { src: "/s21-dsp.jpg", alt: "S21 DSPサウンド処理" },
+      { src: "/s21-battery.jpg", alt: "S21 最大24時間連続再生" },
+      { src: "/s21-display.jpg", alt: "S21 音量とバッテリー残量のデジタル表示" },
+      { src: "/s21-eq.jpg", alt: "S21 2種類のEQモードとRGBライト" },
+      { src: "/s21-tws.jpg", alt: "S21 2台接続TWSステレオ" },
+      { src: "/s21-waterproof.jpg", alt: "S21 IPX6防水仕様" },
+      { src: "/s21-portable.jpg", alt: "S21 吊り下げストラップ付きポータブル設計" },
     ],
   },
   {

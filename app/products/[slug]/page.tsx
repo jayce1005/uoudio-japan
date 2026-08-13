@@ -106,12 +106,44 @@ const s12Faq = [
   },
 ];
 
+const s21Faq = [
+  {
+    q: "最大24時間再生の条件は？",
+    a: "音量30％、RGBライトOFFでの目安です。実際の再生時間は、音量、ライトの使用状況、再生内容、接続方法、周囲温度、バッテリーの状態によって異なります。",
+  },
+  {
+    q: "デジタル表示では何を確認できますか？",
+    a: "再生中は接続モード（BT・AUX・USB）を表示します。音楽を一時停止するとバッテリー残量、＋／－ボタンを押すと現在の音量レベルを数字で確認できます。",
+  },
+  {
+    q: "RGBライトは消せますか？ EQは切り替えられますか？",
+    a: "はい。RGBライトは消灯して使用できます。音質は2種類のEQモードから、音楽のジャンルや使用シーンに合わせて切り替えられます。",
+  },
+  {
+    q: "TWSステレオで2台を接続する方法は？",
+    a: "同じS21を2台用意し、スマートフォンと接続する前にスピーカー同士をTWSペアリングします。接続後は左右に広がるステレオ再生を楽しめます。",
+  },
+  {
+    q: "Bluetooth以外でも音楽を再生できますか？",
+    a: "はい。Bluetooth接続のほか、AUX入力、USBメモリー、TFカードでの音楽再生に対応しています。",
+  },
+  {
+    q: "IPX6防水なら水中でも使用できますか？",
+    a: "水中での使用、浸水、丸洗いには対応していません。水しぶきや雨が気になる場所で使用する際は端子カバーを確実に閉じ、濡れた状態では充電しないでください。",
+  },
+  {
+    q: "保証や交換について相談したいです。",
+    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S21、症状、写真または動画をお送りください。",
+  },
+];
+
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : faq;
+  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s21Faq : faq;
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
+  const formattedPrice = product.price ? new Intl.NumberFormat("ja-JP").format(product.price) : null;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -122,6 +154,14 @@ export default async function ProductPage({ params }: Props) {
     image: product.image,
     description: product.description,
     ...(product.amazonUrl ? { sameAs: [product.amazonUrl] } : {}),
+    ...(product.amazonUrl && product.price ? {
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "JPY",
+        price: product.price,
+        url: product.amazonUrl,
+      },
+    } : {}),
   };
   const faqSchema = {
     "@context": "https://schema.org",
@@ -152,6 +192,13 @@ export default async function ProductPage({ params }: Props) {
             <h2>{product.tagline}</h2>
             <p>{product.description}</p>
             <div className="detail-tags">{product.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+            {formattedPrice && (
+              <div className={styles.priceBlock}>
+                <span>Amazon販売価格</span>
+                <strong>¥{formattedPrice}</strong>
+                <small>※価格は変更される場合があります。</small>
+              </div>
+            )}
             <div className="detail-actions">
               <a className="button primary" href={amazonUrl} target="_blank" rel="noreferrer">Amazonで見る <span>↗</span></a>
               <a className="text-link" href="#specs">仕様を見る <span>↓</span></a>
