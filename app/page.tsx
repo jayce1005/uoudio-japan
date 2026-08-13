@@ -48,10 +48,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="trust-bar" aria-label="UOUDIOのサービス方針">
-          <p>8 PRODUCT MODELS</p><span /><p>JAPANESE PRODUCT GUIDE</p><span /><p>AMAZON AFTER-SALES SUPPORT</p>
-        </section>
-
         <section className="lineup section" id="lineup">
           <div className="lineup-heading">
             <div className="section-heading">
