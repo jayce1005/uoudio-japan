@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProduct, products } from "../../products";
 import { SITE_NAME, SITE_URL, absoluteUrl } from "../../site-config";
+import SiteFooter from "../../site-footer";
 import styles from "./page.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -380,7 +381,7 @@ export default async function ProductPage({ params }: Props) {
         </section>
       </main>
 
-      <footer><div className="footer-brand">UOUDIO<span>®</span></div><p>MAKE EVERY MOMENT SOUND BETTER.</p><div className="footer-links"><a href="/">ホーム</a><a href="/#lineup">製品一覧</a><a href="#support">サポート</a></div><small>© {new Date().getFullYear()} UOUDIO. All rights reserved.</small></footer>
+      <SiteFooter />
     </>
   );
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./brand-logo.css";
+import "./site-footer.css";
+import "./japan-theme.css";
 import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, absoluteUrl } from "./site-config";
 
 export const metadata: Metadata = {

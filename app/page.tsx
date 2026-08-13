@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { products } from "./products";
+import SiteFooter from "./site-footer";
 
 export const metadata: Metadata = {
   title: "UOUDIO Japan｜Bluetoothスピーカー製品一覧",
@@ -23,90 +24,99 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
-      <header className="site-header">
+      <header className="site-header home-header">
         <a className="brand" href="#top" aria-label="UOUDIO ホーム">UOUDIO<span>®</span></a>
         <nav aria-label="メインナビゲーション">
           <a href="#lineup">製品一覧</a>
-          <a href="#about">ブランド</a>
+          <a href="#about">UOUDIOについて</a>
           <a href="#support">サポート</a>
         </nav>
         <a className="header-cta" href="#lineup">製品を探す</a>
       </header>
 
-      <main id="top">
-        <section className="brand-hero">
-          <div className="brand-hero-image">
-            <Image src="/og.png" alt="UOUDIO Bluetoothスピーカーのラインアップ" width={1732} height={908} priority />
-          </div>
-          <div className="brand-hero-copy">
-            <h1 className="sr-only">UOUDIO — どこでも音楽を、もっと自由に。</h1>
-            <div>
-              <p className="eyebrow light"><span /> UOUDIO / PORTABLE AUDIO</p>
-              <p>暮らしにも、旅にも、集まる時間にも。あなたの一日にちょうどいい音を届けます。</p>
-            </div>
-            <a className="button primary" href="#lineup">製品ラインアップ <span>↓</span></a>
-          </div>
+      <main className="home" id="top">
+        <section className="home-banner" aria-label="UOUDIO メインビジュアル">
+          <h1 className="sr-only">UOUDIO Japan｜どこでも音楽を、もっと自由に。</h1>
         </section>
 
-        <section className="lineup section" id="lineup">
-          <div className="lineup-heading">
-            <div className="section-heading">
-              <p className="eyebrow"><span /> ALL PRODUCTS</p>
-              <h2>あなたに合う音を、<br />見つけよう。</h2>
+        <section className="home-lineup" id="lineup">
+          <div className="home-section-lead">
+            <div>
+              <p className="home-section-label">製品ラインアップ</p>
+              <h2>毎日のそばに、<br />いい音を。</h2>
             </div>
-            <p>製品を選ぶと、詳しいパラメータ、特長、使い方、よくあるご質問をご覧いただけます。</p>
+            <p>家でも、外でも。使う場所や聴き方に合わせて、8つのモデルからお選びいただけます。</p>
           </div>
-          <div className="product-grid">
+          <div className="home-product-grid">
             {products.map((product, index) => (
-              <article className={`product-card product-${index + 1}`} key={product.model}>
-                <a className="product-card-image" href={`/products/${product.slug}`}>
-                  <Image src={product.image} alt={`UOUDIO ${product.model} Bluetoothスピーカー`} width={1500} height={1500} />
+              <article className={`home-product-card home-product-${index + 1}`} key={product.model}>
+                <a className="home-product-image" href={`/products/${product.slug}`} aria-label={`${product.model}の製品ページを見る`}>
+                  <Image
+                    src={product.image}
+                    alt={`UOUDIO ${product.model} Bluetoothスピーカー`}
+                    width={1500}
+                    height={1500}
+                    sizes="(max-width: 720px) 42vw, (max-width: 1100px) 38vw, 260px"
+                  />
                 </a>
-                <div className="product-card-copy">
-                  <p>{product.type}</p>
+                <div className="home-product-copy">
+                  <p className="home-product-number">{String(index + 1).padStart(2, "0")}</p>
                   <h3>{product.model}</h3>
-                  <div className="product-tags">{product.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-                  <p className="product-note">{product.tagline}</p>
-                  <a href={`/products/${product.slug}`}>製品を見る <span>→</span></a>
+                  <p className="home-product-tagline">{product.tagline}</p>
+                  <dl className="home-product-specs">
+                    {product.specs.slice(0, 4).map((spec) => (
+                      <div key={spec.label}>
+                        <dt>{spec.label}</dt>
+                        <dd>{spec.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <a className="home-product-link" href={`/products/${product.slug}`}>製品を見る</a>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="about-section" id="about">
-          <div className="about-index">ABOUT<br />UOUDIO</div>
-          <div className="about-copy">
-            <p className="eyebrow light"><span /> OUR PHILOSOPHY</p>
-            <h2>どこでも音楽を、<br />もっと自由に。</h2>
-            <p>UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音楽をもっと身近に楽しめるオーディオブランドです。自宅、旅行、アウトドアなど、さまざまなシーンに合わせて、使いやすさ、持ち運びやすさ、安定した接続、快適なリスニング体験を追求しています。</p>
-            <div className="about-values">
-              <div><b>01</b><h3>使いやすさ</h3><p>直感的な操作と、持ち運びやすい設計。</p></div>
-              <div><b>02</b><h3>選べる音</h3><p>10Wのミニモデルから80Wの大型モデルまで。</p></div>
-              <div><b>03</b><h3>毎日の安心</h3><p>日本語ガイドとAmazon購入後サポート。</p></div>
+        <section className="home-about" id="about">
+          <div className="home-about-inner">
+            <div className="home-about-copy">
+              <p className="home-section-label">UOUDIOについて</p>
+              <h2>どこでも音楽を、<br />もっと自由に。</h2>
+              <p>UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音楽をもっと身近に楽しめるオーディオブランドです。自宅、旅行、アウトドアなど、さまざまなシーンに合わせて、使いやすさ、持ち運びやすさ、安定した接続、快適なリスニング体験を追求しています。</p>
+            </div>
+            <div className="home-about-points">
+              <article><b>01</b><h3>選べるラインアップ</h3><p>手のひらサイズから80Wモデルまで、用途に合わせて選べます。</p></article>
+              <article><b>02</b><h3>持ち運びやすい設計</h3><p>暮らしにも外出にもなじむ、使いやすさを考えたデザインです。</p></article>
+              <article><b>03</b><h3>屋内外で楽しめる</h3><p>防水に対応したモデルも揃え、さまざまな場所で音楽を楽しめます。</p></article>
+              <article><b>04</b><h3>日本語で確認できる</h3><p>各製品ページで、仕様や使い方、よくあるご質問をご案内します。</p></article>
             </div>
           </div>
         </section>
 
-        <section className="home-support section" id="support">
-          <div className="section-heading compact">
-            <p className="eyebrow"><span /> SUPPORT</p>
-            <h2>ご購入後も、安心。</h2>
-            <p>好評カードのQRコードからお越しの方は、お持ちの製品を選んで各製品ページのFAQをご確認ください。</p>
-          </div>
-          <div className="home-support-actions">
-            <a href="#lineup"><b>製品別の使い方・FAQ</b><span>製品を選ぶ →</span></a>
-            <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer"><b>保証・交換のご相談</b><span>Amazon注文履歴を開く ↗</span></a>
+        <section className="home-aftercare" id="support">
+          <div className="home-aftercare-inner">
+            <div className="home-aftercare-copy">
+              <p className="home-section-label">ご購入後のサポート</p>
+              <h2>ご購入後も、安心して<br />お使いいただくために。</h2>
+              <p>製品の使い方やよくあるご質問、保証・交換のご相談窓口をご案内しています。</p>
+            </div>
+            <div className="home-aftercare-links">
+              <a href="#lineup">
+                <span>01</span><b>製品別の使い方・FAQ</b><small>お持ちの製品を選ぶ</small>
+              </a>
+              <a href="#lineup">
+                <span>02</span><b>仕様・取扱情報</b><small>製品ページで確認する</small>
+              </a>
+              <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">
+                <span>03</span><b>保証・交換のご相談</b><small>Amazon注文履歴から販売元へ連絡</small>
+              </a>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer>
-        <div className="footer-brand">UOUDIO<span>®</span></div>
-        <p>どこでも音楽を、もっと自由に。</p>
-        <div className="footer-links"><a href="#lineup">製品一覧</a><a href="#about">ブランド</a><a href="#support">サポート</a></div>
-        <small>© {new Date().getFullYear()} UOUDIO. All rights reserved.</small>
-      </footer>
+      <SiteFooter />
     </>
   );
 }
