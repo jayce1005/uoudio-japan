@@ -35,14 +35,16 @@ export default function Home() {
 
       <main id="top">
         <section className="brand-hero">
-          <div className="brand-hero-copy">
-            <p className="eyebrow light"><span /> UOUDIO / PORTABLE AUDIO</p>
-            <h1>音のある毎日を、<br />もっと自由に。</h1>
-            <p>暮らしにも、旅にも、集まる時間にも。<br />あなたの一日にちょうどいい音を届けます。</p>
-            <a className="button primary" href="#lineup">製品ラインアップ <span>↓</span></a>
-          </div>
           <div className="brand-hero-image">
             <Image src="/og.png" alt="UOUDIO Bluetoothスピーカーのラインアップ" width={1732} height={908} priority />
+          </div>
+          <div className="brand-hero-copy">
+            <h1 className="sr-only">UOUDIO — 音のある毎日を、もっと自由に。</h1>
+            <div>
+              <p className="eyebrow light"><span /> UOUDIO / PORTABLE AUDIO</p>
+              <p>暮らしにも、旅にも、集まる時間にも。あなたの一日にちょうどいい音を届けます。</p>
+            </div>
+            <a className="button primary" href="#lineup">製品ラインアップ <span>↓</span></a>
           </div>
         </section>
 
