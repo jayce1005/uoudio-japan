@@ -157,11 +157,42 @@ const s21Faq = [
   },
 ];
 
+const s11Faq = [
+  {
+    q: "最大24時間再生の条件は？",
+    a: "音量約30％、RGBライトOFFでの目安です。実際の再生時間は、音量、ライト、再生内容、接続方法、周囲温度、バッテリーの状態によって異なります。",
+  },
+  {
+    q: "Bluetooth以外でも音楽を再生できますか？",
+    a: "はい。Bluetooth接続のほか、AUX入力とTFカード再生に対応しています。スマートフォン、パソコン、有線機器、TFカードなど、用途に合わせて選べます。",
+  },
+  {
+    q: "TWSステレオで2台を接続する方法は？",
+    a: "同じS11を2台用意し、スマートフォンと接続する前にスピーカー同士をTWSペアリングします。接続後は左右に広がる立体的なステレオ再生を楽しめます。",
+  },
+  {
+    q: "RGBライトは何種類ありますか？",
+    a: "8種類のRGBライトモードを搭載しています。音楽や使用シーンに合わせて光の演出を楽しめます。長時間再生したい場合はライトをOFFにしてください。",
+  },
+  {
+    q: "IPX7防水ならお風呂で使えますか？",
+    a: "水しぶきが気になる場所でも使いやすい仕様ですが、水中での常用や濡れた状態での充電は避けてください。使用前に端子カバーを確実に閉じ、使用後は水分を拭き取ってください。",
+  },
+  {
+    q: "Bass 3.0とは何ですか？",
+    a: "低音を力強く聴かせるためのサウンドチューニングです。DSP音声処理と組み合わせ、ボーカルや中高音の聞きやすさにも配慮しながら、迫力ある低音を再生します。",
+  },
+  {
+    q: "保証や交換について相談したいです。",
+    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S11、症状、写真または動画をお送りください。",
+  },
+];
+
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s21Faq : faq;
+  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s21Faq : product.slug === "s11" ? s11Faq : faq;
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
   const formattedPrice = product.price ? new Intl.NumberFormat("ja-JP").format(product.price) : null;
   const productUrl = `${SITE_URL}/products/${product.slug}`;
