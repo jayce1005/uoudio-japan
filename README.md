@@ -1,8 +1,7 @@
-# vinext-starter
+# UOUDIO Japan
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+UOUDIO 日本公式サイト。ホームでは全製品とブランドを紹介し、各製品ページで
+仕様・特徴・FAQ・Amazon 購入後のサポート窓口を案内します。
 
 ## Prerequisites
 
@@ -16,7 +15,7 @@ npm run dev
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+Cloudflare Workers project name: `uoudio-japan`.
 
 ## Included Shape
 
