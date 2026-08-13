@@ -4,7 +4,7 @@ import { products } from "./products";
 
 export const metadata: Metadata = {
   title: "UOUDIO Japan｜Bluetoothスピーカー製品一覧",
-  description: "UOUDIOのBluetoothスピーカー全製品をご紹介。S2、S11、S12、S19、S20、S21、GB03、GB MINIから、あなたに合う一台を見つけてください。",
+  description: "どこでも音楽を、もっと自由に。UOUDIOのポータブルBluetoothスピーカー全8モデルと、日本向け製品情報・購入後サポートをご案内します。",
 };
 
 export default function Home() {
@@ -39,7 +39,7 @@ export default function Home() {
             <Image src="/og.png" alt="UOUDIO Bluetoothスピーカーのラインアップ" width={1732} height={908} priority />
           </div>
           <div className="brand-hero-copy">
-            <h1 className="sr-only">UOUDIO — 音のある毎日を、もっと自由に。</h1>
+            <h1 className="sr-only">UOUDIO — どこでも音楽を、もっと自由に。</h1>
             <div>
               <p className="eyebrow light"><span /> UOUDIO / PORTABLE AUDIO</p>
               <p>暮らしにも、旅にも、集まる時間にも。あなたの一日にちょうどいい音を届けます。</p>
@@ -78,8 +78,8 @@ export default function Home() {
           <div className="about-index">ABOUT<br />UOUDIO</div>
           <div className="about-copy">
             <p className="eyebrow light"><span /> OUR PHILOSOPHY</p>
-            <h2>いい音は、<br />毎日を少し楽しくする。</h2>
-            <p>UOUDIOは、ポータブルオーディオをもっと身近にするブランドです。大きな音を楽しみたい日も、ひとりで静かに聴きたい時間も。使う場所やスタイルに合わせて選べるスピーカーを届けます。</p>
+            <h2>どこでも音楽を、<br />もっと自由に。</h2>
+            <p>UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音楽をもっと身近に楽しめるオーディオブランドです。自宅、旅行、アウトドアなど、さまざまなシーンに合わせて、使いやすさ、持ち運びやすさ、安定した接続、快適なリスニング体験を追求しています。</p>
             <div className="about-values">
               <div><b>01</b><h3>使いやすさ</h3><p>直感的な操作と、持ち運びやすい設計。</p></div>
               <div><b>02</b><h3>選べる音</h3><p>10Wのミニモデルから80Wの大型モデルまで。</p></div>
@@ -103,7 +103,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand">UOUDIO<span>®</span></div>
-        <p>MAKE EVERY MOMENT SOUND BETTER.</p>
+        <p>どこでも音楽を、もっと自由に。</p>
         <div className="footer-links"><a href="#lineup">製品一覧</a><a href="#about">ブランド</a><a href="#support">サポート</a></div>
         <small>© {new Date().getFullYear()} UOUDIO. All rights reserved.</small>
       </footer>
