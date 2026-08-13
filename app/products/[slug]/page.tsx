@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProduct, products } from "../../products";
+import { SITE_NAME, SITE_URL, absoluteUrl } from "../../site-config";
 import styles from "./page.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -15,9 +16,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
+  const pageUrl = `${SITE_URL}/products/${product.slug}`;
+  const pageTitle = `UOUDIO ${product.model} Bluetoothスピーカー｜仕様・特長・FAQ`;
   return {
-    title: `UOUDIO ${product.model}｜仕様・特長・使い方・FAQ`,
+    title: pageTitle,
     description: `${product.description} UOUDIO ${product.model}の仕様、特長、接続方法、よくある質問、Amazon購入後サポートをご案内します。`,
+    keywords: [`UOUDIO ${product.model}`, "Bluetoothスピーカー", "ワイヤレススピーカー", ...product.tags],
+    alternates: { canonical: pageUrl },
+    openGraph: {
+      type: "website",
+      locale: "ja_JP",
+      url: pageUrl,
+      siteName: SITE_NAME,
+      title: pageTitle,
+      description: product.description,
+      images: [{ url: absoluteUrl(product.image), width: 1500, height: 1500, alt: `UOUDIO ${product.model} Bluetoothスピーカー` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: product.description,
+      images: [absoluteUrl(product.image)],
+    },
   };
 }
 
@@ -144,15 +164,27 @@ export default async function ProductPage({ params }: Props) {
   const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s21Faq : faq;
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
   const formattedPrice = product.price ? new Intl.NumberFormat("ja-JP").format(product.price) : null;
+  const productUrl = `${SITE_URL}/products/${product.slug}`;
+  const productImages = [product.image, product.banner, ...(product.gallery?.map((item) => item.src) ?? [])]
+    .filter((image): image is string => Boolean(image))
+    .map(absoluteUrl);
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: `UOUDIO ${product.model} Bluetoothスピーカー`,
     brand: { "@type": "Brand", name: "UOUDIO" },
+    url: productUrl,
+    sku: product.model,
     model: product.model,
-    image: product.image,
+    category: "ポータブルBluetoothスピーカー",
+    image: productImages,
     description: product.description,
+    additionalProperty: product.specs.map((spec) => ({
+      "@type": "PropertyValue",
+      name: spec.label,
+      value: spec.value,
+    })),
     ...(product.amazonUrl ? { sameAs: [product.amazonUrl] } : {}),
     ...(product.amazonUrl && product.price ? {
       offers: {
@@ -171,11 +203,21 @@ export default async function ProductPage({ params }: Props) {
       acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "ホーム", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "製品一覧", item: `${SITE_URL}/#lineup` },
+      { "@type": "ListItem", position: 3, name: product.model, item: productUrl },
+    ],
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <header className="site-header product-header">
         <a className="brand" href="/" aria-label="UOUDIO ホーム">UOUDIO<span>®</span></a>
         <nav aria-label="製品ナビゲーション"><a href="#features">特長</a><a href="#specs">仕様</a><a href="#faq">FAQ</a><a href="#support">サポート</a></nav>
