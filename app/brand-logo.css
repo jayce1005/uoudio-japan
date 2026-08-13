@@ -1,0 +1,21 @@
+.site-header .brand {
+  width: 144px;
+  height: 48px;
+  display: block;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: url("/uoudio-logo.png") center / contain no-repeat;
+  font-size: 0;
+  letter-spacing: 0;
+}
+
+.site-header .brand span {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .site-header .brand {
+    width: 120px;
+    height: 40px;
+  }
+}

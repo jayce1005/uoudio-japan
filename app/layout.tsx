@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
+import "./brand-logo.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -17,6 +18,13 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       "UOUDIOポータブルBluetoothスピーカーの日本向け製品情報、使い方、よくある質問、Amazon購入後サポート。",
     robots: { index: true, follow: true },
+    icons: {
+      icon: [
+        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+        { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      ],
+      apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+    },
     openGraph: {
       type: "website",
       locale: "ja_JP",
