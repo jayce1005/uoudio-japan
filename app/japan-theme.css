@@ -122,11 +122,81 @@ body {
 }
 
 .home-banner {
-  background:
-    linear-gradient(120deg, rgba(255, 255, 255, .38), transparent 48%),
-    linear-gradient(145deg, #f0f1ef, #e8ecee);
+  background: #ebe9e3;
   border-bottom: 1px solid #dedfdd;
-  min-height: clamp(260px, 30vw, 440px);
+  min-height: clamp(480px, 43.8vw, 700px);
+  overflow: hidden;
+  position: relative;
+}
+
+.home-banner::after {
+  background: linear-gradient(90deg, rgba(246, 244, 239, .78) 0%, rgba(246, 244, 239, .34) 36%, transparent 58%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.home-banner-image {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.home-banner-copy {
+  left: clamp(24px, 7vw, 120px);
+  max-width: 520px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.home-banner-kicker {
+  color: #4e6f87;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  margin: 0 0 24px;
+}
+
+.home-banner-copy h1 {
+  color: #1b252d;
+  font-size: clamp(45px, 5vw, 72px);
+  font-weight: 600;
+  letter-spacing: -.045em;
+  line-height: 1.32;
+  margin: 0;
+}
+
+.home-banner-lead {
+  color: #56616a;
+  font-size: 14px;
+  line-height: 2;
+  margin: 26px 0 0;
+}
+
+.home-banner-button {
+  align-items: center;
+  background: #202b35;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 24px;
+  letter-spacing: .04em;
+  margin-top: 34px;
+  min-height: 52px;
+  padding: 0 24px;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.home-banner-button:hover {
+  background: #2d6597;
+  transform: translateY(-1px);
 }
 
 .home-lineup {
@@ -507,7 +577,43 @@ body {
   }
 
   .home-banner {
-    min-height: 210px;
+    min-height: 520px;
+  }
+
+  .home-banner::after {
+    background: linear-gradient(90deg, rgba(247, 246, 242, .9) 0%, rgba(247, 246, 242, .66) 55%, rgba(247, 246, 242, .08) 100%);
+  }
+
+  .home-banner-image {
+    object-position: 68% center;
+  }
+
+  .home-banner-copy {
+    left: 20px;
+    max-width: min(76vw, 360px);
+  }
+
+  .home-banner-kicker {
+    font-size: 9px;
+    margin-bottom: 18px;
+  }
+
+  .home-banner-copy h1 {
+    font-size: clamp(36px, 11vw, 48px);
+    line-height: 1.35;
+  }
+
+  .home-banner-lead {
+    font-size: 12px;
+    line-height: 1.9;
+    margin-top: 20px;
+  }
+
+  .home-banner-button {
+    font-size: 11px;
+    margin-top: 27px;
+    min-height: 48px;
+    padding: 0 18px;
   }
 
   .home-lineup {

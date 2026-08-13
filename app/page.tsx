@@ -36,7 +36,20 @@ export default function Home() {
 
       <main className="home" id="top">
         <section className="home-banner" aria-label="UOUDIO メインビジュアル">
-          <h1 className="sr-only">UOUDIO Japan｜どこでも音楽を、もっと自由に。</h1>
+          <Image
+            className="home-banner-image"
+            src="/home-hero-lifestyle-v1.png"
+            alt="光と緑を感じる、UOUDIOのある自由なライフスタイル"
+            fill
+            priority
+            sizes="100vw"
+          />
+          <div className="home-banner-copy">
+            <p className="home-banner-kicker">どこでも音楽を、もっと自由に。</p>
+            <h1>いい音と、<br />好きな場所へ。</h1>
+            <p className="home-banner-lead">家でも、旅でも、アウトドアでも。<br />毎日の気分と過ごし方に寄り添う音を届けます。</p>
+            <a className="home-banner-button" href="#lineup">製品ラインアップを見る <span>↓</span></a>
+          </div>
         </section>
 
         <section className="home-lineup" id="lineup">
