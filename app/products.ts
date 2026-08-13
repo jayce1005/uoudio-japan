@@ -10,6 +10,7 @@ export type Product = {
   features: { title: string; text: string }[];
   gallery?: { src: string; alt: string }[];
   banner?: string;
+  amazonUrl?: string;
 };
 
 export const products: Product[] = [
@@ -97,19 +98,41 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "s12", model: "S12", image: "/s12.jpg", type: "COMPACT COLOR",
-    tagline: "手のひらサイズの、15W。",
-    description: "小型ボディに15Wサウンドとカラーライトを搭載。自宅にも外出にも使いやすいコンパクトモデルです。",
-    tags: ["15W", "防水設計", "RGBライト", "コンパクト"],
+    slug: "s12", model: "S12", image: "/s12-main.jpg", type: "15W / DSP / RGB",
+    tagline: "毎日のそばで、クリアに響く15W。",
+    description: "DSP音声チューニングと15W出力を備えた、約380gのポータブルBluetoothスピーカー。Bluetooth 5.4、6色RGBライト、IPX7防水、TWSステレオ、最大15時間再生に対応します。",
+    tags: ["15W + DSP", "Bluetooth 5.4", "IPX7", "最大15時間"],
+    amazonUrl: "https://www.amazon.co.jp/dp/B0H5HX29VC/ref=twister_B0H8WVMG44?_encoding=UTF8&th=1",
     specs: [
-      { label: "定格出力", value: "15W" }, { label: "防水", value: "防水設計" },
-      { label: "ライト", value: "RGBライト" }, { label: "形状", value: "コンパクト" },
+      { label: "定格出力", value: "15W" },
+      { label: "音質処理", value: "DSP音声チューニング" },
+      { label: "Bluetooth", value: "Bluetooth 5.4" },
+      { label: "ライト", value: "6色RGB / 消灯可能" },
+      { label: "操作ボタン", value: "バックライト搭載" },
+      { label: "防水性能", value: "IPX7", note: "濡れた状態では充電しないでください" },
+      { label: "ステレオ", value: "TWS対応", note: "同一モデルが2台必要です" },
+      { label: "連続再生", value: "最大15時間", note: "音量・ライト設定・再生内容・使用環境により異なります" },
+      { label: "充電", value: "USB Type-C" },
+      { label: "再生方法", value: "Bluetooth / TFカード" },
+      { label: "通話", value: "ハンズフリー通話対応" },
+      { label: "重量", value: "約380g" },
+      { label: "携帯性", value: "ストラップ付き" },
     ],
     features: [
-      { title: "15Wパワフルサウンド", text: "小型ながら、音楽や動画をしっかり楽しめる音量を届けます。" },
-      { title: "防水設計", text: "水しぶきに配慮し、キッチンやアウトドアでも使いやすく設計。" },
-      { title: "カラーライト", text: "天面のRGBリングライトが音楽の時間を彩ります。" },
-      { title: "コンパクトボディ", text: "片手で持ち運びやすく、置き場所を選びにくいサイズです。" },
+      { title: "DSP音声チューニング・15W出力", text: "DSPで音のバランスを整え、ボーカルやBGM、動画の音声を聞き取りやすく再生。コンパクトながら、日常使いに十分な15Wサウンドを届けます。" },
+      { title: "6色RGB・発光ボタン", text: "音楽に合わせて空間を彩る6色RGBライトと、暗い場所でも操作しやすい発光ボタンを搭載。ライトは消灯して使用できます。" },
+      { title: "Bluetooth 5.4・TWS・TFカード", text: "スマートフォンやタブレットと接続しやすいBluetooth 5.4に対応。同一モデル2台でTWSステレオ再生、TFカードでの音楽再生も楽しめます。" },
+      { title: "IPX7防水・約380g", text: "水しぶきや急な雨が気になる場所でも使いやすいIPX7防水仕様。約380gの軽量ボディとストラップで、室内からアウトドアまで気軽に持ち出せます。" },
+      { title: "最大15時間・Type-C充電", text: "最大15時間の連続再生とUSB Type-C充電に対応。ハンズフリー通話も利用でき、毎日の持ち歩きにも使いやすい一台です。" },
+    ],
+    banner: "/s12-portable-banner.jpg",
+    gallery: [
+      { src: "/s12-sound.jpg", alt: "S12 15WサウンドとDSP音声チューニング" },
+      { src: "/s12-rgb.jpg", alt: "S12 6色RGBライトと発光ボタン" },
+      { src: "/s12-tws.jpg", alt: "S12 Bluetooth 5.4とTWSステレオ" },
+      { src: "/s12-waterproof.jpg", alt: "S12 IPX7防水仕様" },
+      { src: "/s12-inputs.jpg", alt: "S12 Bluetooth接続とTFカード再生" },
+      { src: "/s12-battery.jpg", alt: "S12 最大15時間再生と約380gの軽量設計" },
     ],
   },
   {

@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProduct, products } from "../../products";
+import styles from "./page.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -73,11 +75,43 @@ const gbMiniFaq = [
   },
 ];
 
+const s12Faq = [
+  {
+    q: "最大15時間再生の条件は？",
+    a: "最大15時間は使用条件による目安です。実際の再生時間は、音量、RGBライトの設定、再生内容、周囲温度、バッテリーの状態によって異なります。長時間使用したい場合はライトをOFFにしてお使いください。",
+  },
+  {
+    q: "RGBライトやボタンのライトは消せますか？",
+    a: "はい。6色RGBライトは消灯して使用できます。就寝前や落ち着いた室内など、光が不要な場面でも音楽を楽しめます。",
+  },
+  {
+    q: "TWSステレオで2台を接続する方法は？",
+    a: "同じS12を2台用意し、スマートフォンと接続する前にスピーカー同士をTWSペアリングします。接続後は左右に広がるステレオ再生を楽しめます。",
+  },
+  {
+    q: "IPX7防水なら水中でも使用できますか？",
+    a: "防水性能は試験条件に基づくもので、水中での常用や濡れたままの充電は避けてください。使用後は水分を拭き取り、端子部を十分に乾かしてから充電してください。",
+  },
+  {
+    q: "TFカードだけで音楽を再生できますか？",
+    a: "はい。S12はTFカード再生に対応しているため、スマートフォンを接続せずに保存した音楽を再生できます。",
+  },
+  {
+    q: "通話にも使えますか？",
+    a: "はい。ハンズフリー通話に対応しています。接続中のスマートフォンへの着信時に、スピーカーから通話できます。",
+  },
+  {
+    q: "保証や交換について相談したいです。",
+    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S12、症状、写真または動画をお送りください。",
+  },
+];
+
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : faq;
+  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : faq;
+  const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -87,6 +121,7 @@ export default async function ProductPage({ params }: Props) {
     model: product.model,
     image: product.image,
     description: product.description,
+    ...(product.amazonUrl ? { sameAs: [product.amazonUrl] } : {}),
   };
   const faqSchema = {
     "@context": "https://schema.org",
@@ -104,7 +139,7 @@ export default async function ProductPage({ params }: Props) {
       <header className="site-header product-header">
         <a className="brand" href="/" aria-label="UOUDIO ホーム">UOUDIO<span>®</span></a>
         <nav aria-label="製品ナビゲーション"><a href="#features">特長</a><a href="#specs">仕様</a><a href="#faq">FAQ</a><a href="#support">サポート</a></nav>
-        <a className="header-cta" href={`https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`} target="_blank" rel="noreferrer">Amazonで探す</a>
+        <a className="header-cta" href={amazonUrl} target="_blank" rel="noreferrer">Amazonで見る</a>
       </header>
 
       <main className="product-page">
@@ -118,7 +153,7 @@ export default async function ProductPage({ params }: Props) {
             <p>{product.description}</p>
             <div className="detail-tags">{product.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
             <div className="detail-actions">
-              <a className="button primary" href={`https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`} target="_blank" rel="noreferrer">Amazonで探す <span>↗</span></a>
+              <a className="button primary" href={amazonUrl} target="_blank" rel="noreferrer">Amazonで見る <span>↗</span></a>
               <a className="text-link" href="#specs">仕様を見る <span>↓</span></a>
             </div>
           </div>
@@ -135,7 +170,7 @@ export default async function ProductPage({ params }: Props) {
 
         <section className="detail-features section" id="features">
           <div className="section-heading"><p className="eyebrow"><span /> KEY FEATURES</p><h2>{product.model}の特長</h2></div>
-          <div className="detail-feature-grid">
+          <div className={`detail-feature-grid ${product.features.length === 5 ? styles.fiveFeatures : ""}`}>
             {product.features.map((feature, index) => (
               <article key={feature.title}><b>0{index + 1}</b><h3>{feature.title}</h3><p>{feature.text}</p></article>
             ))}

@@ -1,0 +1,28 @@
+.fiveFeatures {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.fiveFeatures article {
+  grid-column: span 2;
+}
+
+.fiveFeatures article:nth-last-child(-n + 2) {
+  grid-column: span 3;
+}
+
+@media (max-width: 980px) {
+  .fiveFeatures {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fiveFeatures article,
+  .fiveFeatures article:nth-last-child(-n + 2) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .fiveFeatures {
+    grid-template-columns: 1fr;
+  }
+}
