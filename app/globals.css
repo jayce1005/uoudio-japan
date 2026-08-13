@@ -73,7 +73,7 @@ img { display: block; }
 .hero-copy { align-self: center; padding: 70px 6vw 70px 0; position: relative; z-index: 2; }
 .eyebrow { align-items: center; display: flex; font: 800 11px/1.2 Arial, sans-serif; letter-spacing: .21em; margin: 0 0 25px; }
 .eyebrow span { background: var(--blue); display: inline-block; height: 2px; margin-right: 12px; width: 30px; }
-.hero h1 { font-size: clamp(62px, 7.4vw, 118px); letter-spacing: -.075em; line-height: .98; margin: 0 0 30px; }
+.hero h1 { font-size: clamp(52px, 5.8vw, 88px); letter-spacing: -.075em; line-height: 1.06; margin: 0 0 30px; }
 .hero-lead { color: #444b54; font-size: clamp(15px, 1.3vw, 19px); font-weight: 600; letter-spacing: .03em; line-height: 2; }
 .hero-actions { align-items: center; display: flex; gap: 32px; margin-top: 38px; }
 .button { align-items: center; display: inline-flex; justify-content: center; }
@@ -110,6 +110,26 @@ img { display: block; }
 .section-heading { max-width: 650px; }
 .section-heading h2, .support-intro h2, .scene-copy h2, .amazon-section h2 { font-size: clamp(38px, 4.5vw, 64px); letter-spacing: -.055em; line-height: 1.18; margin: 0 0 25px; }
 .section-heading > p:last-child, .support-intro > p:last-child { color: var(--muted); font-size: 14px; line-height: 2; }
+
+.lineup { background: #fff; }
+.lineup-heading { align-items:end; display:grid; gap:7vw; grid-template-columns:1fr .7fr; }
+.lineup-heading > p { color:var(--muted); font-size:13px; line-height:2; margin:0 0 15px; }
+.product-grid { display:grid; gap:22px; grid-template-columns:repeat(2,1fr); margin-top:70px; }
+.product-card { background:#f4f6f8; display:grid; grid-template-columns:1.08fr .92fr; min-height:430px; overflow:hidden; }
+.product-card-image { min-height:430px; overflow:hidden; position:relative; }
+.product-card-image img { height:100%; object-fit:cover; transition:transform .5s ease; width:100%; }
+.product-card:hover .product-card-image img { transform:scale(1.035); }
+.product-1 .product-card-image img, .product-2 .product-card-image img, .product-3 .product-card-image img, .product-5 .product-card-image img, .product-6 .product-card-image img { object-fit:contain; mix-blend-mode:multiply; padding:20px; }
+.product-7 .product-card-image img, .product-8 .product-card-image img { object-position:66% center; }
+.new-badge { background:var(--blue); border-radius:999px; color:#fff; font:800 9px Arial,sans-serif; left:20px; letter-spacing:.12em; padding:9px 13px; position:absolute; top:20px; }
+.product-card-copy { align-self:center; padding:35px 30px; }
+.product-card-copy > p:first-child { color:var(--blue); font-size:9px; font-weight:800; letter-spacing:.1em; margin:0 0 9px; }
+.product-card-copy h3 { font:900 clamp(34px,3.5vw,54px)/1 Arial,sans-serif; letter-spacing:-.03em; margin:0 0 22px; }
+.product-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.product-tags span { border:1px solid #cbd1d8; border-radius:999px; color:#555e68; font-size:9px; font-weight:700; padding:6px 9px; }
+.product-note { color:var(--muted); font-size:11px; line-height:1.8; margin:22px 0; }
+.product-card-copy a { border-bottom:1px solid #9ba2aa; display:inline-flex; font-size:10px; font-weight:800; gap:22px; padding:9px 0; }
+.lineup-note { color:#8a9199; font-size:9px; margin:22px 0 0; text-align:right; }
 .feature-grid { display: grid; gap: 1px; grid-template-columns: repeat(4, 1fr); margin-top: 70px; background: var(--line); }
 .feature-card { background: white; min-height: 380px; padding: 28px; position: relative; transition: background .25s, transform .25s; }
 .feature-card:hover { background: #f5f9ff; transform: translateY(-5px); }
@@ -183,6 +203,8 @@ footer small { border-top:1px solid #24272c; color:#686e76; padding-top:25px; wi
   .hero { grid-template-columns:1fr; padding-left:0; }.hero-copy { padding:80px 7vw 50px; }
   .hero-visual { min-height:600px; }.product-image { height:min(100vw,650px); width:min(100vw,650px); }
   .feature-grid { grid-template-columns:repeat(2,1fr); }
+  .lineup-heading { align-items:start; grid-template-columns:1fr; }.lineup-heading > p { max-width:600px; }
+  .product-card { grid-template-columns:1fr; }.product-card-image { min-height:360px; }.product-card-copy { padding:28px; }
   .scene-section { grid-template-columns:1fr; }.scene-image { max-height:600px; }.scene-image::after { background:linear-gradient(0deg,var(--navy),transparent 50%); }
   .scene-copy { padding:20px 8vw 100px; }
   .support, .faq { gap:60px; grid-template-columns:1fr; }
@@ -191,12 +213,13 @@ footer small { border-top:1px solid #24272c; color:#686e76; padding-top:25px; wi
 
 @media (max-width: 620px) {
   .site-header { height:66px; padding:0 18px; }.brand { font-size:20px; }.header-cta { font-size:10px; min-height:38px; padding:0 16px; }
-  .hero { min-height:auto; }.hero-copy { padding:65px 22px 45px; }.hero h1 { font-size:59px; }.hero-lead { font-size:14px; }.desktop-only { display:none; }
+  .hero { min-height:auto; }.hero-copy { padding:65px 22px 45px; }.hero h1 { font-size:48px; }.hero-lead { font-size:14px; }.desktop-only { display:none; }
   .hero-actions { align-items:flex-start; flex-direction:column; gap:16px; }.button.primary { width:100%; }
   .spec-strip { margin-top:50px; }.spec-strip div { padding-left:10px; }.spec-strip dt { font-size:16px; }
   .hero-visual { min-height:440px; }.product-image { height:112vw; width:112vw; }.image-note { left:20px; }.sound-lines { right:5%; }
   .trust-bar { align-items:flex-start; flex-direction:column; gap:10px; padding:22px; }.trust-bar span { display:none; }
   .section { padding:90px 22px; }.section-heading h2,.support-intro h2,.scene-copy h2,.amazon-section h2 { font-size:38px; }
+  .product-grid { grid-template-columns:1fr; margin-top:45px; }.product-card { min-height:0; }.product-card-image { min-height:320px; }.product-card-copy h3 { font-size:40px; }
   .feature-grid { grid-template-columns:1fr; margin-top:50px; }.feature-card { min-height:320px; }.feature-icon { margin:34px 0 25px; }
   .scene-image { min-height:440px; }.scene-copy { padding:10px 22px 80px; }
   .support-panel { padding:25px 20px; }.support-links a { grid-template-columns:38px 1fr 25px; }

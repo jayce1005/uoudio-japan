@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "UOUDIO S21｜防水ポータブルBluetoothスピーカー",
+  title: "UOUDIO Japan｜Bluetoothスピーカー製品一覧・サポート",
   description:
-    "UOUDIO S21の日本向け公式製品ガイド。20Wサウンド、IPX6防水、TWS、EQモードを備えたポータブルBluetoothスピーカー。使い方・よくある質問・Amazon購入後のサポートをご案内します。",
+    "UOUDIOのBluetoothスピーカー製品一覧。S2、S11、S12、S19、S20、S21、GB03、GB MINIの製品情報とAmazon購入後の日本語サポートをご案内します。",
   keywords: [
     "UOUDIO",
     "UOUDIO S21",
@@ -15,6 +15,17 @@ export const metadata: Metadata = {
     "Amazon スピーカー サポート",
   ],
 };
+
+const products = [
+  { model: "S2", image: "/s2.jpg", type: "パワフルモデル", note: "大型ハンドルとワイドなサウンド。アウトドアやパーティーに。", tags: ["RGBライト", "防水設計"] },
+  { model: "S21", image: "/s21-main.jpg", type: "NEW / バランスモデル", note: "20WサウンドとEQを搭載。家でも外でも使いやすい一台。", tags: ["20W", "IPX6", "TWS"] },
+  { model: "S19", image: "/s19.jpg", type: "ライティングモデル", note: "ワイドなRGBライトが音楽の時間を鮮やかに演出。", tags: ["RGBライト", "ポータブル"] },
+  { model: "S20", image: "/s20.jpg", type: "軽量モデル", note: "手軽に持ち運べるスリムボディ。毎日の音楽に。", tags: ["20W", "軽量", "ストラップ"] },
+  { model: "S11", image: "/s11.jpg", type: "タフモデル", note: "水辺のアクティビティにも似合う、円筒型の防水スピーカー。", tags: ["IPX7", "RGBライト"] },
+  { model: "S12", image: "/s12.jpg", type: "コンパクトモデル", note: "手のひらサイズに力強いサウンドとカラーライトを搭載。", tags: ["15W", "防水設計"] },
+  { model: "GB03", image: "/gb03.jpg", type: "ロングプレイモデル", note: "シンプルなスクエアボディで、長時間の再生にも対応。", tags: ["30W", "20時間", "DSP"] },
+  { model: "GB MINI", image: "/gb-mini.jpg", type: "ミニモデル", note: "レトロな質感とコンパクトサイズ。持ち歩きにもデスクにも。", tags: ["10W", "IPX6", "12時間"] },
+];
 
 const features = [
   {
@@ -61,13 +72,20 @@ const faq = [
 export default function Home() {
   const productSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: "UOUDIO S21 ポータブルBluetoothスピーカー",
-    brand: { "@type": "Brand", name: "UOUDIO" },
-    model: "S21",
-    description:
-      "20Wサウンド、IPX6防水、TWS、EQモードを備えたポータブルBluetoothスピーカー。",
-    image: "/s21-main.jpg",
+    "@type": "ItemList",
+    name: "UOUDIO Bluetoothスピーカー製品一覧",
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Product",
+        name: `UOUDIO ${product.model} Bluetoothスピーカー`,
+        brand: { "@type": "Brand", name: "UOUDIO" },
+        model: product.model,
+        image: product.image,
+        description: product.note,
+      },
+    })),
   };
 
   const faqSchema = {
@@ -97,7 +115,7 @@ export default function Home() {
         </a>
         <nav aria-label="メインナビゲーション">
           <a href="#product">製品</a>
-          <a href="#features">特長</a>
+          <a href="#lineup">製品一覧</a>
           <a href="#support">サポート</a>
           <a href="#contact">お問い合わせ</a>
         </nav>
@@ -109,21 +127,21 @@ export default function Home() {
       <main id="top">
         <section className="hero" id="product">
           <div className="hero-copy">
-            <p className="eyebrow"><span /> UOUDIO S21</p>
-            <h1>音を、もっと<br />自由に。</h1>
+            <p className="eyebrow"><span /> PORTABLE AUDIO FOR EVERY MOMENT</p>
+            <h1>音のある毎日を、<br />もっと自由に。</h1>
             <p className="hero-lead">
-              どこへでも連れ出せる、タフでパワフルな<br className="desktop-only" />
-              ポータブルBluetoothスピーカー。
+              コンパクトからパワフルまで。暮らしにも、旅にも、<br className="desktop-only" />
+              あなたにちょうどいいUOUDIOサウンドを。
             </p>
             <div className="hero-actions">
-              <a className="button primary" href="#amazon">Amazonで製品を見る <span>↗</span></a>
+              <a className="button primary" href="#lineup">製品ラインアップ <span>↓</span></a>
               <a className="text-link" href="#support">購入後のサポート <span>→</span></a>
             </div>
             <dl className="spec-strip" aria-label="主な製品仕様">
-              <div><dt>20W</dt><dd>出力</dd></div>
-              <div><dt>IPX6</dt><dd>防水</dd></div>
-              <div><dt>TWS</dt><dd>ステレオ</dd></div>
-              <div><dt>EQ</dt><dd>モード</dd></div>
+              <div><dt>8 MODELS</dt><dd>ラインアップ</dd></div>
+              <div><dt>10–30W</dt><dd>選べる出力</dd></div>
+              <div><dt>WATER</dt><dd>防水モデル</dd></div>
+              <div><dt>RGB</dt><dd>ライト搭載</dd></div>
             </dl>
           </div>
 
@@ -142,7 +160,7 @@ export default function Home() {
             <div className="sound-lines" aria-hidden="true">
               <i /><i /><i /><i />
             </div>
-            <p className="image-note">PORTABLE<br />SOUND SYSTEM</p>
+            <p className="image-note">FEATURED MODEL<br />UOUDIO S21</p>
           </div>
         </section>
 
@@ -152,11 +170,39 @@ export default function Home() {
           <p>製品ガイドをいつでも確認</p>
         </section>
 
+        <section className="lineup section" id="lineup">
+          <div className="lineup-heading">
+            <div className="section-heading">
+              <p className="eyebrow"><span /> PRODUCT LINEUP</p>
+              <h2>あなたのスタイルに、<br />ちょうどいい一台を。</h2>
+            </div>
+            <p>サイズ、サウンド、防水性能、ライト。使う場所や楽しみ方に合わせて、UOUDIOのラインアップからお選びください。</p>
+          </div>
+          <div className="product-grid">
+            {products.map((product, index) => (
+              <article className={`product-card product-${index + 1}`} key={product.model}>
+                <div className="product-card-image">
+                  <Image src={product.image} alt={`UOUDIO ${product.model} Bluetoothスピーカー`} width={1500} height={1500} />
+                  {index === 1 && <span className="new-badge">NEW</span>}
+                </div>
+                <div className="product-card-copy">
+                  <p>{product.type}</p>
+                  <h3>{product.model}</h3>
+                  <div className="product-tags">{product.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  <p className="product-note">{product.note}</p>
+                  <a href={`https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`} target="_blank" rel="noreferrer">Amazonで探す <span>↗</span></a>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="lineup-note">※ 販売状況・仕様は商品ページをご確認ください。</p>
+        </section>
+
         <section className="features section" id="features">
           <div className="section-heading">
-            <p className="eyebrow"><span /> PRODUCT FEATURES</p>
-            <h2>小さなボディに、<br />楽しさを詰め込んで。</h2>
-            <p>S21は、日常のあらゆる場所を音楽のある空間に変えます。</p>
+            <p className="eyebrow"><span /> FEATURED MODEL / S21</p>
+            <h2>注目モデル、S21。</h2>
+            <p>豊富なラインアップの中から、バランスのよい新モデルS21をご紹介します。</p>
           </div>
           <div className="feature-grid">
             {features.map((feature) => (
@@ -180,7 +226,7 @@ export default function Home() {
             />
           </div>
           <div className="scene-copy">
-            <p className="eyebrow light"><span /> DESIGNED FOR EVERYDAY</p>
+            <p className="eyebrow light"><span /> UOUDIO S21 / DESIGNED FOR EVERYDAY</p>
             <h2>家でも、外でも。<br />好きな場所が、特等席。</h2>
             <p>リビングでのリラックスタイムから、キャンプや海辺のひとときまで。縦置き・横置きに対応したデザインで、音楽の楽しみ方が広がります。</p>
             <ul>
@@ -195,7 +241,7 @@ export default function Home() {
           <div className="support-intro">
             <p className="eyebrow"><span /> AFTER-SALES SUPPORT</p>
             <h2>ご購入後も、<br />すぐそばに。</h2>
-            <p>同梱カードのQRコードからお越しの方へ。まずは下の項目をご確認ください。解決しない場合は、Amazonの注文履歴から販売元へお問い合わせいただけます。</p>
+            <p>同梱カードのQRコードからお越しの方へ。お持ちの製品型番をご確認のうえ、下の項目をご覧ください。解決しない場合は、Amazonの注文履歴から販売元へお問い合わせいただけます。</p>
           </div>
           <div className="support-panel">
             <p className="support-label">お困りの内容を選んでください</p>
@@ -205,7 +251,7 @@ export default function Home() {
               <a href="#faq"><span>03</span><b>音質・操作方法</b><i>→</i></a>
               <a href="#contact"><span>04</span><b>保証・交換のご相談</b><i>→</i></a>
             </div>
-            <p className="support-tip"><b>お問い合わせ前に</b> 注文番号と製品名「S21」、症状が分かる写真または動画をご用意いただくとスムーズです。</p>
+            <p className="support-tip"><b>お問い合わせ前に</b> 注文番号、製品型番、症状が分かる写真または動画をご用意いただくとスムーズです。</p>
           </div>
         </section>
 
@@ -227,8 +273,8 @@ export default function Home() {
         <section className="amazon-section" id="amazon">
           <div>
             <p className="eyebrow light"><span /> OFFICIAL STORE</p>
-            <h2>UOUDIO S21を<br />Amazonでチェック。</h2>
-            <p>価格・在庫・配送予定はAmazonの商品ページでご確認ください。</p>
+            <h2>UOUDIO製品を<br />Amazonでチェック。</h2>
+            <p>各モデルの価格・在庫・配送予定はAmazonの商品ページでご確認ください。</p>
           </div>
           <a className="amazon-button" href="https://www.amazon.co.jp/s?k=UOUDIO+S21" target="_blank" rel="noreferrer">
             <span className="amazon-smile">amazon</span>
