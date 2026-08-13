@@ -188,11 +188,46 @@ const s11Faq = [
   },
 ];
 
+const s20Faq = [
+  {
+    q: "最大24時間再生の条件は？",
+    a: "使用条件による目安です。実際の再生時間は、音量、RGBライト、再生内容、接続方法、周囲温度、バッテリーの状態によって異なります。長時間使用したい場合はライトをOFFにしてお使いください。",
+  },
+  {
+    q: "TWS接続で合計40Wになりますか？",
+    a: "はい。同じS20を2台TWS接続すると、左右に広がるステレオ再生と合計最大40Wの出力を楽しめます。TWS接続には同一モデルが2台必要です。",
+  },
+  {
+    q: "RGBライトは消せますか？",
+    a: "はい。6色RGBライトは、リズム連動、点滅、固定色などを選べ、消灯にも対応しています。就寝前や落ち着いた室内でも音だけを楽しめます。",
+  },
+  {
+    q: "microSDカードで音楽を再生できますか？",
+    a: "はい。最大32GBのmicroSDカードに対応し、MP3形式の音楽ファイルを再生できます。カードの形式やファイルによっては認識しない場合があります。",
+  },
+  {
+    q: "Bluetooth以外の接続方法はありますか？",
+    a: "Bluetooth 5.4のほか、3.5mm AUX入力とmicroSDカード再生に対応しています。スマートフォン、パソコン、タブレットなどで使用できます。",
+  },
+  {
+    q: "IPX7防水なら水中や浴槽内で使えますか？",
+    a: "水中での常用や浴槽内での使用は避けてください。使用前に端子カバーを確実に閉じ、使用後は水分を拭き取り、濡れた状態では充電しないでください。",
+  },
+  {
+    q: "通話にも使えますか？",
+    a: "はい。内蔵マイクを搭載し、接続中のスマートフォンでハンズフリー通話ができます。",
+  },
+  {
+    q: "保証や交換について相談したいです。",
+    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S20、症状、写真または動画をお送りください。",
+  },
+];
+
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s21Faq : product.slug === "s11" ? s11Faq : faq;
+  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s21Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : faq;
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
   const formattedPrice = product.price ? new Intl.NumberFormat("ja-JP").format(product.price) : null;
   const productUrl = `${SITE_URL}/products/${product.slug}`;
