@@ -8,6 +8,8 @@ export type Product = {
   tags: string[];
   specs: { label: string; value: string; note?: string }[];
   features: { title: string; text: string }[];
+  gallery?: { src: string; alt: string }[];
+  banner?: string;
 };
 
 export const products: Product[] = [
@@ -127,20 +129,39 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "gb-mini", model: "GB MINI", image: "/gb-mini.jpg", type: "RETRO MINI",
-    tagline: "小さくても、豊かな音。",
-    description: "レトロな質感のコンパクトボディに10Wサウンドを搭載。デスクにも持ち歩きにも似合うミニモデルです。",
-    tags: ["10W", "IPX6", "12時間", "TWS"],
+    slug: "gb-mini", model: "GB MINI", image: "/gb-mini-product.jpg", type: "RETRO MINI / DSP SOUND",
+    tagline: "手のひらサイズに、豊かな10Wサウンド。",
+    description: "10WフルレンジドライバーとDSP音質補正を搭載した、レザー調シリコンボディのポータブルBluetoothスピーカー。IPX6防水、TWS、最大12時間再生、3種類のライト、AUX・TFカード・USB再生に対応します。",
+    tags: ["10W + DSP", "IPX6", "最大12時間", "TWS 20W"],
     specs: [
-      { label: "定格出力", value: "10W" }, { label: "防水性能", value: "IPX6" },
+      { label: "定格出力", value: "10W" },
+      { label: "音質処理", value: "DSPデジタル音声処理" },
+      { label: "TWSステレオ", value: "2台接続で合計20W", note: "同一モデルが2台必要です" },
+      { label: "防水性能", value: "IPX6", note: "水中使用・丸洗いには非対応" },
       { label: "連続再生", value: "最大12時間", note: "30%音量・ライトOFF時の目安" },
-      { label: "ステレオ", value: "TWS対応" },
+      { label: "ライト", value: "ホワイト常時点灯 / 暖色ブリージング / SOS赤色点滅 / OFF" },
+      { label: "再生方法", value: "Bluetooth / 3.5mm AUX / TFカード / USBメモリー" },
+      { label: "メディア対応", value: "最大32GB・FAT32・MP3", note: "TFカード・USBメモリー" },
+      { label: "充電", value: "USB Type-C・5V 1A / 2A" },
+      { label: "付属品", value: "ストラップ / 日本語取扱説明書" },
     ],
     features: [
-      { title: "10Wフルレンジ", text: "小さなボディでも、日常で楽しめる豊かなサウンドを再生します。" },
-      { title: "IPX6防水", text: "日常の水しぶきに配慮し、家でも外でも気軽に使えます。" },
-      { title: "最大12時間再生", text: "コンパクトながら、長時間の音楽再生に対応します。" },
-      { title: "レトロデザイン", text: "ゴールドのアクセントと質感のあるボディが空間に馴染みます。" },
+      { title: "10Wサウンド・DSP音質補正", text: "10WフルレンジドライバーとDSP技術で歪みを抑え、高音・中音・低音をバランスよく再生。ボーカルや会話も聞き取りやすいクリアなサウンドです。" },
+      { title: "TWSステレオ・2台で20W", text: "同一モデル2台をワイヤレス接続すると、左右に広がる合計20Wのステレオ再生を楽しめます。" },
+      { title: "レザー調シリコンボディ", text: "滑りにくく、汚れを拭き取りやすいシボ加工。擦れや細かな傷を抑え、落下時の衝撃もやわらげます。" },
+      { title: "IPX6防水・3種類のライト", text: "雨や日常の水しぶきに対応。ホワイト常時点灯、暖色ブリージング、SOS赤色点滅を選べ、ライトOFFにもできます。" },
+      { title: "最大12時間・多彩な再生方法", text: "Bluetooth、3.5mm AUX、TFカード、USBメモリーに対応。Type-C充電、ストラップ、日本語取扱説明書付きです。" },
+    ],
+    banner: "/gb-mini-banner.jpg",
+    gallery: [
+      { src: "/gb-mini-sound.jpg", alt: "GB MINI 10Wフルレンジドライバーと内部構造" },
+      { src: "/gb-mini-dsp.jpg", alt: "GB MINI DSPデジタル音声処理" },
+      { src: "/gb-mini-tws.jpg", alt: "GB MINI 2台接続TWSステレオ" },
+      { src: "/gb-mini-lights.jpg", alt: "GB MINI 3種類のライトモード" },
+      { src: "/gb-mini-battery.jpg", alt: "GB MINI 最大12時間連続再生" },
+      { src: "/gb-mini-waterproof.jpg", alt: "GB MINI IPX6防水" },
+      { src: "/gb-mini-inputs.jpg", alt: "GB MINI AUX TFカード USB Type-C対応" },
+      { src: "/gb-mini-sos.jpg", alt: "GB MINI SOS赤色点滅ライト" },
     ],
   },
 ];

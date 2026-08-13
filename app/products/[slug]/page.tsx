@@ -42,10 +42,42 @@ const faq = [
   },
 ];
 
+const gbMiniFaq = [
+  {
+    q: "最大12時間再生の条件は？",
+    a: "音量約30％、ライトOFFでの目安です。実際の再生時間は、音量、ライトモード、再生内容、周囲温度、バッテリーの状態によって異なります。",
+  },
+  {
+    q: "TWSステレオで2台を接続する方法は？",
+    a: "同じGB MINIを2台用意し、スマートフォンと接続する前にスピーカー同士をTWSペアリングします。接続後は左右に広がる合計20Wのステレオ再生を楽しめます。",
+  },
+  {
+    q: "TFカードやUSBメモリーで再生できますか？",
+    a: "最大32GB、FAT32形式のTFカードとUSBメモリーに対応しています。対応音声ファイルはMP3です。WAV・FLACなどは再生できません。",
+  },
+  {
+    q: "IPX6防水なら水中でも使用できますか？",
+    a: "水中での使用、浸水、丸洗いには対応していません。雨や日常の水しぶきから保護する仕様です。濡れた状態では充電せず、端子を十分に乾かしてください。",
+  },
+  {
+    q: "ライトの種類と切り替え方法は？",
+    a: "ホワイト常時点灯、暖色ブリージング、赤色SOS点滅の3種類です。ライトをOFFにすることもできます。SOS点滅は周囲へ注意を促す補助機能としてお使いください。",
+  },
+  {
+    q: "充電器の仕様は？",
+    a: "USB Type-Cポートから5V 1Aまたは5V 2Aで充電してください。充電前に端子部に水分や異物がないことを確認してください。",
+  },
+  {
+    q: "保証や交換について相談したいです。",
+    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番GB MINI、症状、写真または動画をお送りください。",
+  },
+];
+
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
+  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : faq;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -59,7 +91,7 @@ export default async function ProductPage({ params }: Props) {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
+    mainEntity: productFaq.map((item) => ({
       "@type": "Question", name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
@@ -95,6 +127,12 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </section>
 
+        {product.banner && (
+          <section className="product-banner" aria-label={`${product.model} 製品イメージ`}>
+            <Image src={product.banner} alt={`${product.model} Bluetoothスピーカー`} width={1464} height={600} />
+          </section>
+        )}
+
         <section className="detail-features section" id="features">
           <div className="section-heading"><p className="eyebrow"><span /> KEY FEATURES</p><h2>{product.model}の特長</h2></div>
           <div className="detail-feature-grid">
@@ -103,6 +141,15 @@ export default async function ProductPage({ params }: Props) {
             ))}
           </div>
         </section>
+
+        {product.gallery && (
+          <section className="product-gallery section" aria-label={`${product.model} 機能紹介`}>
+            <div className="section-heading"><p className="eyebrow"><span /> PRODUCT DETAILS</p><h2>音・光・使いやすさを、<br />画像で詳しく。</h2></div>
+            <div className="product-gallery-grid">
+              {product.gallery.map((item) => <Image key={item.src} src={item.src} alt={item.alt} width={1254} height={1254} />)}
+            </div>
+          </section>
+        )}
 
         <section className="spec-section section" id="specs">
           <div className="section-heading compact"><p className="eyebrow light"><span /> SPECIFICATIONS</p><h2>主な仕様</h2></div>
@@ -128,7 +175,7 @@ export default async function ProductPage({ params }: Props) {
         <section className="faq section" id="faq">
           <div className="section-heading compact"><p className="eyebrow"><span /> FAQ / {product.model}</p><h2>よくあるご質問</h2></div>
           <div className="faq-list">
-            {faq.map((item, index) => <details key={item.q} open={index === 0}><summary><span>0{index + 1}</span>{item.q}<i>＋</i></summary><p>{item.a}</p></details>)}
+            {productFaq.map((item, index) => <details key={item.q} open={index === 0}><summary><span>0{index + 1}</span>{item.q}<i>＋</i></summary><p>{item.a}</p></details>)}
           </div>
         </section>
 
