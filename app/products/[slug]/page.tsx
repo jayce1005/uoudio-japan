@@ -261,10 +261,17 @@ export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : product.slug === "gb03" ? mg2Faq : faq;
+  const baseFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : product.slug === "gb03" ? mg2Faq : faq;
+  const productFaq = baseFaq.map((item) => item.q.includes("保証や交換") ? {
+    q: "保証期間と2年延長サービスについて教えてください。",
+    a: `通常のメーカー保証は購入日から1年間です。無料の延長保証をご希望の場合は、Amazonの注文番号と製品型番「${product.model}」をサポート窓口へお送りください。登録確認後、保証期間を2年間へ延長します。`,
+  } : item);
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
   const productBrand = product.brand ?? "UOUDIO";
   const productUrl = `${SITE_URL}/products/${product.slug}`;
+  const supportSubject = encodeURIComponent(`${productBrand} ${product.model} サポート・延長保証のお問い合わせ`);
+  const supportBody = encodeURIComponent(`下記をご記入ください。\n\nAmazon注文番号：\n製品型番：${product.model}\nお問い合わせ内容：\n症状が分かる写真・動画：添付をお願いします\n`);
+  const supportMailUrl = `mailto:${SUPPORT_EMAIL}?subject=${supportSubject}&body=${supportBody}`;
   const productImages = [product.image, product.banner, ...(product.gallery?.map((item) => item.src) ?? [])]
     .filter((image): image is string => Boolean(image))
     .map(absoluteUrl);
@@ -328,7 +335,7 @@ export default async function ProductPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <header className="site-header product-header">
         <a className="brand" href="/" aria-label="UOUDIO ホーム">UOUDIO<span>®</span></a>
-        <nav aria-label="製品ナビゲーション"><a href="#features">特長</a><a href="#specs">仕様</a>{product.manualUrl && <a href="#manual">説明書</a>}<a href="#faq">FAQ</a><a href="#support">サポート</a></nav>
+        <nav aria-label="製品ナビゲーション"><a href="#features">特長</a><a href="#specs">仕様</a><a href="#warranty">保証</a>{product.manualUrl && <a href="#manual">説明書</a>}<a href="#faq">FAQ</a><a href="#support">サポート</a></nav>
         <a className="header-cta" href={amazonUrl} target="_blank" rel="noreferrer">Amazonで見る</a>
       </header>
 
@@ -347,6 +354,19 @@ export default async function ProductPage({ params }: Props) {
           tags={product.tags}
           type={product.type}
         />
+
+        <section className="product-assurance" id="warranty" aria-label="保証と日本語サポート">
+          <div className="assurance-intro">
+            <span className="assurance-shield" aria-hidden="true">✓</span>
+            <div><small>UOUDIO AFTER-SALES CARE</small><b>購入後も、安心してお使いいただけます。</b></div>
+          </div>
+          <div className="assurance-items">
+            <article><span>01</span><div><b>1年間メーカー保証</b><small>すべての製品が対象</small></div></article>
+            <article><span>02</span><div><b>無料で2年間へ延長</b><small>注文番号と型番をメールで登録</small></div></article>
+            <article><span>03</span><div><b>日本語サポート</b><small>Amazonまたはメールで受付</small></div></article>
+          </div>
+          <a href="#support">保証・サポートを見る <span>↓</span></a>
+        </section>
 
         {product.banner && (
           <section className="product-banner" aria-label={`${product.model} 製品イメージ`}>
@@ -407,18 +427,60 @@ export default async function ProductPage({ params }: Props) {
           </section>
         )}
 
+        <section className="care-section section" id="support">
+          <div className="care-heading">
+            <p className="eyebrow"><span /> WARRANTY &amp; SUPPORT</p>
+            <h2>困ったときも、<br />迷わない<br />サポート。</h2>
+            <p>接続や充電などの多くの問題は、設定の確認や再接続で解決できます。まずは説明書とFAQをご確認ください。解決しない場合は、日本語サポートが対応します。</p>
+          </div>
+
+          <div className="care-content">
+            <div className="warranty-card">
+              <div className="warranty-badge"><strong>1</strong><span>YEAR<br />WARRANTY</span></div>
+              <div>
+                <small>STANDARD WARRANTY</small>
+                <h3>購入日から1年間のメーカー保証</h3>
+                <p>正常な使用状態で製品に不具合が生じた場合は、保証規定に基づいてサポートします。Amazonの注文番号が購入証明になります。</p>
+              </div>
+            </div>
+
+            <div className="extension-card">
+              <p><span>FREE</span> 延長保証サービス</p>
+              <h3>簡単なメール登録で、<br />保証期間を2年間へ。</h3>
+              <ol>
+                <li><b>1</b><span>Amazonの注文番号を確認</span></li>
+                <li><b>2</b><span>注文番号と型番「{product.model}」を送信</span></li>
+                <li><b>3</b><span>登録確認メールを保管</span></li>
+              </ol>
+              <a href={supportMailUrl}>2年延長保証を登録する <span>→</span></a>
+            </div>
+
+            <div className="support-route">
+              <div className="support-route-heading">
+                <small>CONTACT US</small>
+                <h3>解決しない場合はこちら</h3>
+                <p>お問い合わせ時に注文番号、製品型番、症状が分かる写真または動画をお送りいただくと、確認がスムーズです。</p>
+              </div>
+              <div className="support-route-actions">
+                <a className="amazon-support" href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">
+                  <span className="support-icon" aria-hidden="true">A</span>
+                  <span><small>購入情報と一緒に相談</small><b>Amazonの注文履歴から連絡</b></span>
+                  <i>↗</i>
+                </a>
+                <a className="email-support" href={supportMailUrl}>
+                  <span className="support-icon" aria-hidden="true">✉</span>
+                  <span><small>直接メールで相談</small><b>{SUPPORT_EMAIL}</b></span>
+                  <i>→</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="faq section" id="faq">
           <div className="section-heading compact"><p className="eyebrow"><span /> FAQ / {product.model}</p><h2>よくあるご質問</h2></div>
           <div className="faq-list">
             {productFaq.map((item, index) => <details key={item.q} open={index === 0}><summary><span>0{index + 1}</span>{item.q}<i>＋</i></summary><p>{item.a}</p></details>)}
-          </div>
-        </section>
-
-        <section className="product-support" id="support">
-          <div><p className="eyebrow light"><span /> AFTER-SALES SUPPORT</p><h2>解決しない場合は、<br />サポート窓口へご相談ください。</h2><p>注文番号、製品型番「{product.model}」、症状が分かる写真または動画をご用意ください。</p></div>
-          <div className="product-support-actions">
-            <a href={`mailto:${SUPPORT_EMAIL}`}><b>メールで問い合わせる</b><span>{SUPPORT_EMAIL} ↗</span></a>
-            <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer"><b>Amazon注文履歴</b><span>販売元へ連絡する ↗</span></a>
           </div>
         </section>
 
