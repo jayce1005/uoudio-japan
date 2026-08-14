@@ -478,6 +478,64 @@ body {
   color: #587e9c;
 }
 
+.manual-section {
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #e2e1dc;
+  border-top: 1px solid #e2e1dc;
+  display: grid;
+  gap: 8vw;
+  grid-template-columns: .75fr 1.25fr;
+}
+
+.manual-section .section-heading > p:last-child {
+  color: #69727b;
+  font-size: 13px;
+  line-height: 2;
+  margin: 22px 0 0;
+}
+
+.manual-download {
+  align-items: center;
+  background: #f1f2ef;
+  border: 1px solid #dedfdc;
+  display: flex;
+  justify-content: space-between;
+  min-height: 138px;
+  padding: 32px 36px;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.manual-download:hover {
+  background: #e9eef0;
+  border-color: #c8d0d4;
+  transform: translateY(-2px);
+}
+
+.manual-download span {
+  display: grid;
+  gap: 12px;
+}
+
+.manual-download small {
+  color: #718594;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.manual-download b {
+  color: #26313a;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.manual-download i {
+  color: #3f6e90;
+  font-size: 22px;
+  font-style: normal;
+}
+
 .product-support,
 .amazon-section {
   background: #172431;
@@ -654,6 +712,16 @@ body {
   .detail-hero,
   .detail-image {
     min-height: auto;
+  }
+
+  .manual-section {
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+
+  .manual-download {
+    min-height: 116px;
+    padding: 26px 24px;
   }
 
   .site-footer {

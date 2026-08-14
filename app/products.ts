@@ -12,6 +12,7 @@ export type Product = {
   banner?: string;
   amazonUrl?: string;
   price?: number;
+  manualUrl?: string;
 };
 
 export const products: Product[] = [
@@ -34,6 +35,7 @@ export const products: Product[] = [
   },
   {
     slug: "s21", model: "S16", image: "/s21-main.jpg", type: "20W / DSP / 24H PLAYBACK",
+    manualUrl: "/manuals/uoudio-s16-manual.pdf",
     tagline: "20Wの音を、一日中どこへでも。",
     description: "20W出力とDSPサウンド処理を備えたポータブルBluetoothスピーカー。最大24時間再生、音量・バッテリー残量のデジタル表示、2種類のEQ、RGBライト、IPX6防水に対応します。",
     tags: ["20W + DSP", "最大24時間", "IPX6", "デジタル表示"],
@@ -74,6 +76,7 @@ export const products: Product[] = [
   },
   {
     slug: "s19", model: "X2 PRO", image: "/s19.jpg", type: "LIGHTING PERFORMANCE",
+    manualUrl: "/manuals/uoudio-x2-pro-manual.pdf",
     tagline: "音楽を、光でも楽しむ。",
     description: "30Wの迫力と鮮やかなRGBライトを両立。日常からアウトドアまで、空間を盛り上げるモデルです。",
     tags: ["30W", "IPX7", "20時間", "TWS"],
@@ -91,6 +94,7 @@ export const products: Product[] = [
   },
   {
     slug: "s20", model: "S20", image: "/s20-main.png", type: "20W / DSP / COMPACT",
+    manualUrl: "/manuals/uoudio-s20-manual.pdf",
     tagline: "軽やかに持ち出せる、迫力の20W。",
     description: "20W出力とデュアルドライバー、DSP音声処理を備えた約345gのポータブルBluetoothスピーカー。Bluetooth 5.4、IPX7防水、最大24時間再生、TWS、6色RGBライト、microSD・AUX再生に対応します。",
     tags: ["20W + DSP", "約345g", "最大24時間", "IPX7"],
@@ -132,6 +136,7 @@ export const products: Product[] = [
   },
   {
     slug: "s11", model: "S11", image: "/s11-main.jpg", type: "25W / BASS 3.0 / IPX7",
+    manualUrl: "/manuals/uoudio-s11-manual.pdf",
     tagline: "迫力の25Wを、音と光で楽しむ。",
     description: "25W高出力とDSP音声処理、Bass 3.0重低音を備えたポータブルBluetoothスピーカー。Bluetooth 5.4、最大24時間再生、IPX7防水、TWSステレオ、8種類のRGBライトに対応します。",
     tags: ["25W + DSP", "Bass 3.0", "最大24時間", "IPX7"],
@@ -168,6 +173,7 @@ export const products: Product[] = [
   },
   {
     slug: "s12", model: "S12", image: "/s12-main.jpg", type: "15W / DSP / RGB",
+    manualUrl: "/manuals/uoudio-s12-manual.pdf",
     tagline: "毎日のそばで、クリアに響く15W。",
     description: "DSP音声チューニングと15W出力を備えた、約380gのポータブルBluetoothスピーカー。Bluetooth 5.4、6色RGBライト、IPX7防水、TWSステレオ、最大15時間再生に対応します。",
     tags: ["15W + DSP", "Bluetooth 5.4", "IPX7", "最大15時間"],
@@ -206,6 +212,7 @@ export const products: Product[] = [
   },
   {
     slug: "gb03", model: "GB03", image: "/gb03.jpg", type: "LONG PLAY SQUARE",
+    manualUrl: "/manuals/uoudio-gb03-manual.pdf",
     tagline: "長く聴ける、30W。",
     description: "30Wサウンドと最大20時間再生を備えたスクエアモデル。シンプルなデザインでどこにでも馴染みます。",
     tags: ["30W", "20時間", "DSP", "TWS"],
@@ -222,6 +229,7 @@ export const products: Product[] = [
   },
   {
     slug: "gb-mini", model: "GB 01", image: "/gb-mini-product.jpg", type: "RETRO MINI / DSP SOUND",
+    manualUrl: "/manuals/uoudio-gb01-manual.pdf",
     tagline: "手のひらサイズに、豊かな10Wサウンド。",
     description: "10WフルレンジドライバーとDSP音質補正を搭載した、レザー調シリコンボディのポータブルBluetoothスピーカー。IPX6防水、TWS、最大12時間再生、3種類のライト、AUX・TFカード・USB再生に対応します。",
     tags: ["10W + DSP", "IPX6", "最大12時間", "TWS 20W"],

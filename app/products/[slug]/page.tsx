@@ -252,6 +252,14 @@ export default async function ProductPage({ params }: Props) {
       name: spec.label,
       value: spec.value,
     })),
+    ...(product.manualUrl ? {
+      subjectOf: {
+        "@type": "DigitalDocument",
+        name: `UOUDIO ${product.model} 取扱説明書`,
+        encodingFormat: "application/pdf",
+        url: absoluteUrl(product.manualUrl),
+      },
+    } : {}),
     ...(product.amazonUrl ? { sameAs: [product.amazonUrl] } : {}),
     ...(product.amazonUrl && product.price ? {
       offers: {
@@ -287,7 +295,7 @@ export default async function ProductPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <header className="site-header product-header">
         <a className="brand" href="/" aria-label="UOUDIO ホーム">UOUDIO<span>®</span></a>
-        <nav aria-label="製品ナビゲーション"><a href="#features">特長</a><a href="#specs">仕様</a><a href="#faq">FAQ</a><a href="#support">サポート</a></nav>
+        <nav aria-label="製品ナビゲーション"><a href="#features">特長</a><a href="#specs">仕様</a>{product.manualUrl && <a href="#manual">説明書</a>}<a href="#faq">FAQ</a><a href="#support">サポート</a></nav>
         <a className="header-cta" href={amazonUrl} target="_blank" rel="noreferrer">Amazonで見る</a>
       </header>
 
@@ -362,6 +370,20 @@ export default async function ProductPage({ params }: Props) {
             <li><b>03</b><div><h3>型番を選ぶ</h3><p>使用可能な機器から「{product.model}」を選択します。</p></div></li>
           </ol>
         </section>
+
+        {product.manualUrl && (
+          <section className="manual-section section" id="manual">
+            <div className="section-heading compact">
+              <p className="eyebrow"><span /> USER MANUAL</p>
+              <h2>取扱説明書</h2>
+              <p>詳しい操作方法や安全上のご注意は、PDF版の取扱説明書でご確認いただけます。</p>
+            </div>
+            <a className="manual-download" href={product.manualUrl} target="_blank" rel="noreferrer">
+              <span><small>PDF / {product.model}</small><b>取扱説明書を開く</b></span>
+              <i>↗</i>
+            </a>
+          </section>
+        )}
 
         <section className="faq section" id="faq">
           <div className="section-heading compact"><p className="eyebrow"><span /> FAQ / {product.model}</p><h2>よくあるご質問</h2></div>
