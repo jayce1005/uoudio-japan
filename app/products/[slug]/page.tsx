@@ -20,10 +20,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) return {};
   const productBrand = product.brand ?? "UOUDIO";
   const pageUrl = `${SITE_URL}/products/${product.slug}`;
-  const pageTitle = `${productBrand} ${product.model} Bluetoothスピーカー｜仕様・特長・FAQ`;
+  const seoFeatures = product.tags
+    .slice(0, 2)
+    .map((tag) => tag.replace(/\s*\+\s*/g, "・"))
+    .join("・");
+  const pageTitle = `${productBrand} ${product.model}｜${seoFeatures} Bluetoothスピーカー`;
+  const pageDescription = `${productBrand} ${product.model}は、${product.tags.slice(0, 3).join("、")}に対応するポータブルBluetoothスピーカーです。仕様、特長、取扱説明書、FAQ、保証、Amazon購入情報をご案内します。`;
   return {
-    title: pageTitle,
-    description: `${product.description} ${productBrand} ${product.model}の仕様、特長、接続方法、よくある質問、Amazon購入後サポートをご案内します。`,
+    title: { absolute: `${pageTitle}｜UOUDIO Japan` },
+    description: pageDescription,
     keywords: [`UOUDIO ${product.model}`, "Bluetoothスピーカー", "ワイヤレススピーカー", ...product.tags],
     alternates: { canonical: pageUrl },
     openGraph: {
@@ -32,13 +37,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: pageUrl,
       siteName: SITE_NAME,
       title: pageTitle,
-      description: product.description,
+      description: pageDescription,
       images: [{ url: absoluteUrl(product.image), width: 1500, height: 1500, alt: `${productBrand} ${product.model} Bluetoothスピーカー` }],
     },
     twitter: {
       card: "summary_large_image",
       title: pageTitle,
-      description: product.description,
+      description: pageDescription,
       images: [absoluteUrl(product.image)],
     },
   };

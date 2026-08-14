@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { products } from "./products";
-import { SUPPORT_EMAIL } from "./site-config";
+import { DEFAULT_DESCRIPTION, HOME_TITLE, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "./site-config";
 import SiteFooter from "./site-footer";
 
 const bestsellerSlugs = ["s21", "s12", "s11"];
@@ -13,8 +13,23 @@ const homeProducts = [...products].sort(
 );
 
 export const metadata: Metadata = {
-  title: "UOUDIO Japan｜Bluetoothスピーカー製品一覧",
-  description: "どこでも音楽を、もっと自由に。UOUDIOのポータブルBluetoothスピーカー全8モデルと、日本向け製品情報・購入後サポートをご案内します。",
+  title: { absolute: HOME_TITLE },
+  description: DEFAULT_DESCRIPTION,
+  alternates: { canonical: SITE_URL },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: SITE_URL,
+    title: HOME_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [{ url: absoluteUrl("/og.png"), width: 1732, height: 908, alt: "UOUDIO Bluetoothスピーカー公式サイト" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [absoluteUrl("/og.png")],
+  },
 };
 
 export default function Home() {
@@ -25,7 +40,7 @@ export default function Home() {
     itemListElement: homeProducts.map((product, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `/products/${product.slug}`,
+      url: `${SITE_URL}/products/${product.slug}`,
       name: `${product.brand ?? "UOUDIO"} ${product.model}`,
     })),
   };

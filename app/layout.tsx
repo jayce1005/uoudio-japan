@@ -3,14 +3,14 @@ import "./globals.css";
 import "./brand-logo.css";
 import "./site-footer.css";
 import "./japan-theme.css";
-import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "./site-config";
+import { DEFAULT_DESCRIPTION, HOME_TITLE, SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "./site-config";
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     applicationName: SITE_NAME,
     title: {
-      default: "UOUDIO Japan｜ポータブルBluetoothスピーカー",
-      template: "%s | UOUDIO Japan",
+      default: HOME_TITLE,
+      template: "%s｜UOUDIO Japan",
     },
     description: DEFAULT_DESCRIPTION,
     keywords: [
@@ -47,14 +47,14 @@ export const metadata: Metadata = {
       locale: "ja_JP",
       url: SITE_URL,
       siteName: SITE_NAME,
-      title: "UOUDIO Japan｜どこでも音楽を、もっと自由に。",
-      description: "UOUDIO Bluetoothスピーカーの製品ラインアップとAmazon購入後サポート。",
+      title: HOME_TITLE,
+      description: DEFAULT_DESCRIPTION,
       images: [{ url: absoluteUrl("/og.png"), width: 1732, height: 908, alt: "UOUDIO Bluetoothスピーカー" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "UOUDIO Japan｜どこでも音楽を、もっと自由に。",
-      description: "UOUDIO Bluetoothスピーカーの製品ラインアップとAmazon購入後サポート。",
+      title: HOME_TITLE,
+      description: DEFAULT_DESCRIPTION,
       images: [absoluteUrl("/og.png")],
     },
   };
