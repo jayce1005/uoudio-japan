@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { products } from "./products";
+import { SUPPORT_EMAIL } from "./site-config";
 import SiteFooter from "./site-footer";
 
 const bestsellerSlugs = ["s21", "s12", "s11"];
@@ -130,6 +131,9 @@ export default function Home() {
               </a>
               <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">
                 <span>03</span><b>保証・交換のご相談</b><small>Amazon注文履歴から販売元へ連絡</small>
+              </a>
+              <a href={`mailto:${SUPPORT_EMAIL}`}>
+                <span>04</span><b>メールでのお問い合わせ</b><small>{SUPPORT_EMAIL}</small>
               </a>
             </div>
           </div>

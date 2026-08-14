@@ -3,7 +3,7 @@ import "./globals.css";
 import "./brand-logo.css";
 import "./site-footer.css";
 import "./japan-theme.css";
-import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, absoluteUrl } from "./site-config";
+import { DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "./site-config";
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
@@ -69,6 +69,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         name: "UOUDIO",
         url: SITE_URL,
         logo: absoluteUrl("/uoudio-logo.png"),
+        email: SUPPORT_EMAIL,
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: SUPPORT_EMAIL,
+          availableLanguage: ["Japanese"],
+        },
       },
       {
         "@type": "WebSite",

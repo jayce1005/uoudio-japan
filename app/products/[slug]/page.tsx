@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProduct, products } from "../../products";
-import { SITE_NAME, SITE_URL, absoluteUrl } from "../../site-config";
+import { SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "../../site-config";
 import SiteFooter from "../../site-footer";
 import styles from "./page.module.css";
 
@@ -393,8 +393,11 @@ export default async function ProductPage({ params }: Props) {
         </section>
 
         <section className="product-support" id="support">
-          <div><p className="eyebrow light"><span /> AFTER-SALES SUPPORT</p><h2>解決しない場合は、<br />販売元へご相談ください。</h2><p>注文番号、製品型番「{product.model}」、症状が分かる写真または動画をご用意ください。</p></div>
-          <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer"><b>Amazon注文履歴</b><span>販売元へ連絡する ↗</span></a>
+          <div><p className="eyebrow light"><span /> AFTER-SALES SUPPORT</p><h2>解決しない場合は、<br />サポート窓口へご相談ください。</h2><p>注文番号、製品型番「{product.model}」、症状が分かる写真または動画をご用意ください。</p></div>
+          <div className="product-support-actions">
+            <a href={`mailto:${SUPPORT_EMAIL}`}><b>メールで問い合わせる</b><span>{SUPPORT_EMAIL} ↗</span></a>
+            <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer"><b>Amazon注文履歴</b><span>販売元へ連絡する ↗</span></a>
+          </div>
         </section>
 
         <section className="other-products section">

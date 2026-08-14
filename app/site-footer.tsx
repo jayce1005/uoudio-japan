@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SUPPORT_EMAIL } from "./site-config";
 
 export default function SiteFooter() {
   return (
@@ -30,6 +31,7 @@ export default function SiteFooter() {
             <p>SUPPORT</p>
             <Link href="/#support">ご購入後のサポート</Link>
             <Link href="/#lineup">製品別FAQ</Link>
+            <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
             <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">Amazon注文履歴 ↗</a>
           </div>
         </nav>

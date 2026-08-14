@@ -563,7 +563,39 @@ body {
   line-height: 1.4;
 }
 
-.product-support > a,
+.product-support-actions {
+  display: grid;
+  gap: 12px;
+  max-width: none !important;
+  width: min(370px, 100%);
+}
+
+.product-support-actions a {
+  background: #fff;
+  color: #1c252d;
+  display: grid;
+  gap: 10px;
+  padding: 24px 28px;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.product-support-actions a:hover {
+  background: #e9eef0;
+  transform: translateY(-1px);
+}
+
+.product-support-actions a b {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.product-support-actions a span {
+  color: #63717c;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+.product-support-actions a,
 .amazon-button {
   border-radius: 3px;
 }
@@ -744,6 +776,10 @@ body {
   .manual-download {
     min-height: 116px;
     padding: 26px 24px;
+  }
+
+  .product-support-actions {
+    width: 100%;
   }
 
   .site-footer {
