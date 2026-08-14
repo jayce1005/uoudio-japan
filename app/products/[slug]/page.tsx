@@ -358,12 +358,29 @@ export default async function ProductPage({ params }: Props) {
         <section className="product-assurance" id="warranty" aria-label="保証と日本語サポート">
           <div className="assurance-intro">
             <span className="assurance-shield" aria-hidden="true">✓</span>
-            <div><small>UOUDIO AFTER-SALES CARE</small><b>購入後も、安心してお使いいただけます。</b></div>
+            <div>
+              <small>UOUDIO AFTER-SALES CARE</small>
+              <b>購入後も、安心してお使いいただけます。</b>
+              {product.manualUrl
+                ? <a className="assurance-manual-link" href={product.manualUrl} target="_blank" rel="noreferrer">{product.model} 取扱説明書を見る <span>↗</span></a>
+                : <a className="assurance-manual-link" href="#faq">製品別FAQを見る <span>↓</span></a>}
+            </div>
           </div>
           <div className="assurance-items">
-            <article><span>01</span><div><b>1年間メーカー保証</b><small>すべての製品が対象</small></div></article>
-            <article><span>02</span><div><b>無料で2年間へ延長</b><small>注文番号と型番をメールで登録</small></div></article>
-            <article><span>03</span><div><b>日本語サポート</b><small>Amazonまたはメールで受付</small></div></article>
+            <article>
+              <span>01–02</span>
+              <div><b>1年間保証・無料で2年間へ延長</b><small>注文番号と型番をメールで登録</small></div>
+            </article>
+            <article className="assurance-contact">
+              <span>03</span>
+              <div>
+                <b>日本語アフターサポート</b>
+                <div className="assurance-contact-links">
+                  <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">Amazon注文履歴 ↗</a>
+                  <a href={supportMailUrl}>{SUPPORT_EMAIL} →</a>
+                </div>
+              </div>
+            </article>
           </div>
           <a href="#support">保証・サポートを見る <span>↓</span></a>
         </section>

@@ -172,12 +172,18 @@ img { display: block; }
 .assurance-intro div { display:flex; flex-direction:column; gap:6px; }
 .assurance-intro small { color:#718298; font:700 8px Arial,sans-serif; letter-spacing:.15em; }
 .assurance-intro b { color:#122032; font-size:13px; line-height:1.55; }
-.assurance-items { border-left:1px solid var(--line); display:grid; grid-template-columns:repeat(3,1fr); }
+.assurance-manual-link { align-items:center; color:#326d9f; display:inline-flex; font-size:9px; font-weight:800; gap:8px; margin-top:3px; width:max-content; }
+.assurance-manual-link:hover { color:#174f7b; }
+.assurance-manual-link span { font-size:12px; }
+.assurance-items { border-left:1px solid var(--line); display:grid; grid-template-columns:.9fr 1.1fr; }
 .assurance-items article { align-items:center; border-right:1px solid var(--line); display:flex; gap:12px; min-width:0; padding:22px 22px; }
 .assurance-items article > span { color:#9babc0; font:700 9px Arial,sans-serif; }
 .assurance-items article div { display:flex; flex-direction:column; gap:5px; min-width:0; }
 .assurance-items b { color:#17283b; font-size:12px; line-height:1.4; }
 .assurance-items small { color:#7c8795; font-size:9px; line-height:1.55; }
+.assurance-contact-links { align-items:flex-start; flex-direction:row !important; flex-wrap:wrap; gap:3px 12px !important; }
+.assurance-contact-links a { color:#55718d; font-size:8px; font-weight:700; line-height:1.5; overflow-wrap:anywhere; }
+.assurance-contact-links a:hover { color:#1d6fa8; }
 .product-assurance > a { align-items:center; color:#326d9f; display:flex; font-size:10px; font-weight:800; gap:12px; justify-content:center; padding-left:28px; white-space:nowrap; }
 .product-assurance > a span { font-size:15px; }
 .product-banner { background:#080808; overflow:hidden; }.product-banner img { height:auto; width:100%; }
