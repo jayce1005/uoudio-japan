@@ -14,7 +14,7 @@ export type Product = {
   amazonUrl?: string;
   price?: number;
   manualUrl?: string;
-  colors?: { name: string; swatch: string }[];
+  colors?: { name: string; swatch: string; image?: string }[];
 };
 
 export const products: Product[] = [
@@ -221,8 +221,8 @@ export const products: Product[] = [
     amazonUrl: "https://www.amazon.co.jp/dp/B0GYS5RVT9?th=1",
     price: 8990,
     colors: [
-      { name: "ブラック＆ブラス", swatch: "#171717" },
-      { name: "クリーム", swatch: "#eee5d2" },
+      { name: "ブラック＆ブラス", swatch: "#171717", image: "/mg2-main.jpg" },
+      { name: "クリーム", swatch: "#eee5d2", image: "/mg2-cream-main.jpg" },
     ],
     specs: [
       { label: "定格出力", value: "24W" },

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getProduct, products } from "../../products";
 import { SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "../../site-config";
 import SiteFooter from "../../site-footer";
+import ProductHero from "./product-hero";
 import styles from "./page.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -262,7 +263,6 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
   const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : product.slug === "gb03" ? mg2Faq : faq;
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
-  const formattedPrice = product.price ? new Intl.NumberFormat("ja-JP").format(product.price) : null;
   const productBrand = product.brand ?? "UOUDIO";
   const productUrl = `${SITE_URL}/products/${product.slug}`;
   const productImages = [product.image, product.banner, ...(product.gallery?.map((item) => item.src) ?? [])]
@@ -334,42 +334,19 @@ export default async function ProductPage({ params }: Props) {
 
       <main className="product-page">
         <div className="breadcrumbs"><a href="/">ホーム</a><span>›</span><a href="/#lineup">製品一覧</a><span>›</span><b>{product.model}</b></div>
-        <section className="detail-hero">
-          <div className="detail-copy">
-            <p className="eyebrow"><span /> {product.type}</p>
-            <p className="detail-brand">{productBrand}</p>
-            <h1>{product.model}</h1>
-            <h2>{product.tagline}</h2>
-            <p>{product.description}</p>
-            <div className="detail-tags">{product.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-            {product.colors && (
-              <div className={styles.colorOptions} aria-label="カラーバリエーション">
-                <p>カラーバリエーション</p>
-                <div>
-                  {product.colors.map((color, index) => (
-                    <span key={color.name} className={index === 0 ? styles.primaryColor : ""}>
-                      <i style={{ backgroundColor: color.swatch }} />{color.name}{index === 0 && <small>メイン掲載</small>}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-            {formattedPrice && (
-              <div className={styles.priceBlock}>
-                <span>Amazon販売価格</span>
-                <strong>¥{formattedPrice}</strong>
-                <small>※価格は変更される場合があります。</small>
-              </div>
-            )}
-            <div className="detail-actions">
-              <a className="button primary" href={amazonUrl} target="_blank" rel="noreferrer">Amazonで見る <span>↗</span></a>
-              <a className="text-link" href="#specs">仕様を見る <span>↓</span></a>
-            </div>
-          </div>
-          <div className={`detail-image detail-${product.slug}`}>
-            <Image src={product.image} alt={`${productBrand} ${product.model} Bluetoothスピーカー`} width={1500} height={1500} priority />
-          </div>
-        </section>
+        <ProductHero
+          amazonUrl={amazonUrl}
+          brand={productBrand}
+          colors={product.colors}
+          description={product.description}
+          image={product.image}
+          model={product.model}
+          price={product.price}
+          slug={product.slug}
+          tagline={product.tagline}
+          tags={product.tags}
+          type={product.type}
+        />
 
         {product.banner && (
           <section className="product-banner" aria-label={`${product.model} 製品イメージ`}>
