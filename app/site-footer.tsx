@@ -18,7 +18,7 @@ export default function SiteFooter() {
             <p>PRODUCTS</p>
             <Link href="/#lineup">製品一覧</Link>
             <Link href="/products/s21">S16</Link>
-            <Link href="/products/s20">S20</Link>
+            <Link href="/products/s12">S12</Link>
             <Link href="/products/s11">S11</Link>
           </div>
           <div>

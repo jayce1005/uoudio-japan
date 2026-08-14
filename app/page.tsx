@@ -3,6 +3,12 @@ import Image from "next/image";
 import { products } from "./products";
 import SiteFooter from "./site-footer";
 
+const bestsellerSlugs = ["s21", "s12", "s11"];
+const bestsellerOrder = new Map(bestsellerSlugs.map((slug, index) => [slug, index]));
+const homeProducts = [...products].sort(
+  (a, b) => (bestsellerOrder.get(a.slug) ?? 999) - (bestsellerOrder.get(b.slug) ?? 999),
+);
+
 export const metadata: Metadata = {
   title: "UOUDIO Japan｜Bluetoothスピーカー製品一覧",
   description: "どこでも音楽を、もっと自由に。UOUDIOのポータブルBluetoothスピーカー全8モデルと、日本向け製品情報・購入後サポートをご案内します。",
@@ -13,7 +19,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "UOUDIO Bluetoothスピーカー製品一覧",
-    itemListElement: products.map((product, index) => ({
+    itemListElement: homeProducts.map((product, index) => ({
       "@type": "ListItem",
       position: index + 1,
       url: `/products/${product.slug}`,
@@ -61,8 +67,9 @@ export default function Home() {
             <p>家でも、外でも。使う場所や聴き方に合わせて、8つのモデルからお選びいただけます。</p>
           </div>
           <div className="home-product-grid">
-            {products.map((product, index) => (
+            {homeProducts.map((product, index) => (
               <article className={`home-product-card home-product-${index + 1}`} key={product.model}>
+                {bestsellerOrder.has(product.slug) && <span className="home-product-badge">人気モデル</span>}
                 <a className="home-product-image" href={`/products/${product.slug}`} aria-label={`${product.model}の製品ページを見る`}>
                   <Image
                     src={product.image}
