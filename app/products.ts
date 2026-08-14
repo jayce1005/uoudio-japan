@@ -93,6 +93,15 @@ export const products: Product[] = [
       { title: "TWSペアリング", text: "2台接続時は合計最大60Wのステレオサウンドを楽しめます。" },
       { title: "持ち運びやすい", text: "ストラップ付きで、バッグやアウトドアギアにも取り付けられます。" },
     ],
+    gallery: [
+      { src: "/x2-pro-waterproof.jpg", alt: "X2 PRO IPX7防水設計とバスルームでの使用イメージ" },
+      { src: "/x2-pro-dsp.jpg", alt: "X2 PRO DSP 3.0音声処理とBluetooth 5.4" },
+      { src: "/x2-pro-sound.jpg", alt: "X2 PRO 30W重低音とデュアルフルレンジドライバー" },
+      { src: "/x2-pro-portable.jpg", alt: "X2 PRO ストラップ付きポータブル設計" },
+      { src: "/x2-pro-tws.jpg", alt: "X2 PRO 2台接続で合計最大60WのTWSステレオ" },
+      { src: "/x2-pro-rgb.jpg", alt: "X2 PRO 6種類のRGBライトモード" },
+      { src: "/x2-pro-battery.jpg", alt: "X2 PRO 最大20時間再生と4000mAhバッテリー" },
+    ],
   },
   {
     slug: "s20", model: "S20", image: "/s20-main.png", type: "20W / DSP / COMPACT",
