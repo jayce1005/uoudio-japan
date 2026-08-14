@@ -5,9 +5,11 @@ import { SUPPORT_EMAIL } from "./site-config";
 import SiteFooter from "./site-footer";
 
 const bestsellerSlugs = ["s21", "s12", "s11"];
+const homeProductSlugs = ["s21", "s12", "s19", "s20", "s11", "gb03", "gb-mini", "s2"];
 const bestsellerOrder = new Map(bestsellerSlugs.map((slug, index) => [slug, index]));
+const homeProductOrder = new Map(homeProductSlugs.map((slug, index) => [slug, index]));
 const homeProducts = [...products].sort(
-  (a, b) => (bestsellerOrder.get(a.slug) ?? 999) - (bestsellerOrder.get(b.slug) ?? 999),
+  (a, b) => (homeProductOrder.get(a.slug) ?? 999) - (homeProductOrder.get(b.slug) ?? 999),
 );
 
 export const metadata: Metadata = {

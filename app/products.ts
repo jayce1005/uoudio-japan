@@ -211,7 +211,7 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "gb03", model: "GB03", image: "/gb03.jpg", type: "LONG PLAY SQUARE",
+    slug: "gb03", model: "MG II", image: "/gb03.jpg", type: "LONG PLAY SQUARE",
     manualUrl: "/manuals/uoudio-gb03-manual.pdf",
     tagline: "長く聴ける、30W。",
     description: "30Wサウンドと最大20時間再生を備えたスクエアモデル。シンプルなデザインでどこにでも馴染みます。",

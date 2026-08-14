@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- native hash navigation is intentional in the global footer */
 import Image from "next/image";
 import Link from "next/link";
 import { SUPPORT_EMAIL } from "./site-config";
@@ -17,20 +18,20 @@ export default function SiteFooter() {
         <nav className="site-footer-nav" aria-label="フッターナビゲーション">
           <div>
             <p>PRODUCTS</p>
-            <Link href="/#lineup">製品一覧</Link>
+            <a href="/#lineup">製品一覧</a>
             <Link href="/products/s21">S16</Link>
             <Link href="/products/s12">S12</Link>
             <Link href="/products/s11">S11</Link>
           </div>
           <div>
             <p>ABOUT</p>
-            <Link href="/#about">UOUDIOについて</Link>
-            <Link href="/#lineup">製品を選ぶ</Link>
+            <a href="/#about">UOUDIOについて</a>
+            <a href="/#lineup">製品を選ぶ</a>
           </div>
           <div>
             <p>SUPPORT</p>
-            <Link href="/#support">ご購入後のサポート</Link>
-            <Link href="/#lineup">製品別FAQ</Link>
+            <a href="/#support">ご購入後のサポート</a>
+            <a href="/#lineup" aria-label="製品を選んで製品別FAQを見る">製品別FAQ</a>
             <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
             <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">Amazon注文履歴 ↗</a>
           </div>

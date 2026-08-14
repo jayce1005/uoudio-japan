@@ -69,6 +69,9 @@
 }
 
 .site-footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
   color: #b6bec9;
   font-size: 12px;
   line-height: 1.6;
@@ -78,6 +81,12 @@
 .site-footer-nav a:hover {
   color: #fff;
   transform: translateX(3px);
+}
+
+.site-footer-nav a:focus-visible {
+  color: #fff;
+  outline: 1px solid #8eabc0;
+  outline-offset: 4px;
 }
 
 .site-footer-bottom {
