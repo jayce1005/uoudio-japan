@@ -127,7 +127,7 @@ const s12Faq = [
   },
 ];
 
-const s21Faq = [
+const s16Faq = [
   {
     q: "最大24時間再生の条件は？",
     a: "音量30％、RGBライトOFFでの目安です。実際の再生時間は、音量、ライトの使用状況、再生内容、接続方法、周囲温度、バッテリーの状態によって異なります。",
@@ -142,7 +142,7 @@ const s21Faq = [
   },
   {
     q: "TWSステレオで2台を接続する方法は？",
-    a: "同じS21を2台用意し、スマートフォンと接続する前にスピーカー同士をTWSペアリングします。接続後は左右に広がるステレオ再生を楽しめます。",
+    a: "同じS16を2台用意し、スマートフォンと接続する前にスピーカー同士をTWSペアリングします。接続後は左右に広がるステレオ再生を楽しめます。",
   },
   {
     q: "Bluetooth以外でも音楽を再生できますか？",
@@ -154,7 +154,7 @@ const s21Faq = [
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S21、症状、写真または動画をお送りください。",
+    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S16、症状、写真または動画をお送りください。",
   },
 ];
 
@@ -228,7 +228,7 @@ export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s21Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : faq;
+  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : faq;
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
   const formattedPrice = product.price ? new Intl.NumberFormat("ja-JP").format(product.price) : null;
   const productUrl = `${SITE_URL}/products/${product.slug}`;
