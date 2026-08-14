@@ -438,7 +438,13 @@ footer small { border-top:1px solid #24272c; color:#686e76; padding-top:25px; wi
   width: 96%;
 }
 .home-product-card:hover .home-product-image img { transform: scale(1.025); }
-.home-product-7 .home-product-image img { height: 100%; mix-blend-mode: normal; object-fit: cover; padding: 0; width: 100%; }
+.home-product-7 .home-product-image img {
+  height: 82%;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+  padding: 10px;
+  width: 94%;
+}
 .home-product-copy {
   align-self: center;
   padding: 34px 34px 34px 12px;
