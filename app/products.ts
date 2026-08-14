@@ -1,6 +1,7 @@
 export type Product = {
   slug: string;
   model: string;
+  brand?: string;
   image: string;
   type: string;
   tagline: string;
@@ -13,6 +14,7 @@ export type Product = {
   amazonUrl?: string;
   price?: number;
   manualUrl?: string;
+  colors?: { name: string; swatch: string }[];
 };
 
 export const products: Product[] = [
@@ -211,20 +213,50 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "gb03", model: "MG II", image: "/gb03.jpg", type: "LONG PLAY SQUARE",
-    manualUrl: "/manuals/uoudio-gb03-manual.pdf",
-    tagline: "長く聴ける、30W。",
-    description: "30Wサウンドと最大20時間再生を備えたスクエアモデル。シンプルなデザインでどこにでも馴染みます。",
-    tags: ["30W", "20時間", "DSP", "TWS"],
+    slug: "gb03", model: "MG II", brand: "MADDECKERS", image: "/mg2-main.jpg", type: "24W / BLUETOOTH 6.0 / IP67",
+    manualUrl: "/manuals/uoudio-mg2-manual.pdf",
+    tagline: "上質な佇まいに、迫力の24Wサウンド。",
+    description: "24W出力とDSP音声処理、3種類のEQを備えたポータブルBluetoothスピーカー。Bluetooth 6.0、IP67防水・防塵、最大17時間再生、TWS、3種類のアンビエントライト、USB・microSD・AUX再生に対応します。",
+    tags: ["24W + DSP", "Bluetooth 6.0", "IP67", "最大17時間"],
+    amazonUrl: "https://www.amazon.co.jp/dp/B0GYS5RVT9?th=1",
+    price: 8990,
+    colors: [
+      { name: "ブラック＆ブラス", swatch: "#171717" },
+      { name: "クリーム", swatch: "#eee5d2" },
+    ],
     specs: [
-      { label: "定格出力", value: "30W" }, { label: "連続再生", value: "最大20時間" },
-      { label: "音質処理", value: "DSP" }, { label: "ステレオ", value: "TWS対応" },
+      { label: "定格出力", value: "24W" },
+      { label: "音質処理", value: "DSP音声処理 / 3種類のEQ" },
+      { label: "Bluetooth", value: "Bluetooth 6.0", note: "通信距離は最大約10m（使用環境により異なります）" },
+      { label: "連続再生", value: "最大17時間", note: "音量30％での目安。音量・ライト・使用環境により異なります" },
+      { label: "防水・防塵", value: "IP67", note: "端子カバーを確実に閉じ、濡れた状態では充電しないでください" },
+      { label: "音質調整", value: "3種類のEQモード" },
+      { label: "ライト", value: "常時点灯 / 呼吸 / 赤色点滅 / OFF" },
+      { label: "ステレオ", value: "TWS対応・2台で合計48W", note: "同一モデルが2台必要です" },
+      { label: "再生方法", value: "Bluetooth / USBメモリー / microSD / AUX" },
+      { label: "充電", value: "USB Type-C" },
+      { label: "外装", value: "合成皮革 / 滑り止めシリコンベース" },
+      { label: "携帯性", value: "ストラップ付き" },
+      { label: "カラー", value: "ブラック＆ブラス / クリーム" },
     ],
     features: [
-      { title: "30Wサウンド", text: "屋内外で楽しめる、力強くバランスのよいサウンドを届けます。" },
-      { title: "最大20時間再生", text: "朝から夜まで音楽を楽しめるロングライフ設計です。" },
-      { title: "DSPオーディオ", text: "再生する音を整え、クリアな音と深い低音を両立します。" },
-      { title: "TWS対応", text: "2台を接続して、広がりのあるステレオ再生が可能です。" },
+      { title: "24W・DSP・360°サウンド", text: "高感度デュアルドライバーとパッシブラジエーター、DSP音声処理を組み合わせ、厚みのある低音からクリアな高音までバランスよく再生します。" },
+      { title: "最大17時間・TWSステレオ", text: "音量30％で最大17時間再生。同じMG IIを2台TWS接続すると、合計48Wの広がりあるステレオサウンドを楽しめます。" },
+      { title: "3種類のEQ・アンビエントライト", text: "コンテンツに合わせて3種類のEQを選択可能。常時点灯、呼吸、赤色点滅の3モードを備え、ライトOFFにも対応します。" },
+      { title: "IP67防水・防塵", text: "水しぶきや雨、ほこりが気になる屋外でも使いやすいIP67仕様。滑り止めシリコンベースで安定して設置できます。" },
+      { title: "Bluetooth 6.0・多彩な再生方法", text: "Bluetooth 6.0に加え、USBメモリー、microSDカード、AUX入力に対応。自宅からアウトドアまで柔軟に使えます。" },
+      { title: "上質な外装・2色展開", text: "手触りのよい合成皮革と持ち運びやすいストラップを採用。ブラック＆ブラスを主色に、柔らかなクリームもお選びいただけます。" },
+    ],
+    gallery: [
+      { src: "/mg2-dsp.jpg", alt: "MG II 24W出力とDSP音声処理" },
+      { src: "/mg2-battery.jpg", alt: "MG II 最大17時間連続再生" },
+      { src: "/mg2-waterproof.jpg", alt: "MG II IP67防水・防塵仕様" },
+      { src: "/mg2-eq.jpg", alt: "MG II 3種類のEQモード" },
+      { src: "/mg2-lights.jpg", alt: "MG II 3種類のアンビエントライト" },
+      { src: "/mg2-tws.jpg", alt: "MG II 2台接続TWSステレオ" },
+      { src: "/mg2-controls.jpg", alt: "MG II 操作ボタン" },
+      { src: "/mg2-portable.jpg", alt: "MG II ストラップ付きポータブル設計" },
+      { src: "/mg2-cream.jpg", alt: "MG II クリームカラー" },
     ],
   },
   {

@@ -26,7 +26,7 @@ export default function Home() {
       "@type": "ListItem",
       position: index + 1,
       url: `/products/${product.slug}`,
-      name: `UOUDIO ${product.model}`,
+      name: `${product.brand ?? "UOUDIO"} ${product.model}`,
     })),
   };
 
@@ -76,7 +76,7 @@ export default function Home() {
                 <a className="home-product-image" href={`/products/${product.slug}`} aria-label={`${product.model}の製品ページを見る`}>
                   <Image
                     src={product.image}
-                    alt={`UOUDIO ${product.model} Bluetoothスピーカー`}
+                    alt={`${product.brand ?? "UOUDIO"} ${product.model} Bluetoothスピーカー`}
                     width={1500}
                     height={1500}
                     sizes="(max-width: 720px) 42vw, (max-width: 1100px) 38vw, 260px"

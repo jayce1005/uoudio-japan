@@ -36,6 +36,57 @@
   font-size: 0.7rem;
 }
 
+.colorOptions {
+  margin-top: 26px;
+}
+
+.colorOptions > p {
+  margin: 0 0 10px;
+  color: #667085;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.colorOptions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.colorOptions > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid #d7dce2;
+  border-radius: 999px;
+  color: #384250;
+  background: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.colorOptions i {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(11, 27, 46, 0.18);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.colorOptions small {
+  color: #587590;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.colorOptions .primaryColor {
+  border-color: #87a5be;
+  box-shadow: 0 0 0 2px rgba(77, 120, 153, 0.1);
+}
+
 @media (max-width: 980px) {
   .fiveFeatures {
     grid-template-columns: repeat(2, 1fr);

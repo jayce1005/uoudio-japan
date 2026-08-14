@@ -17,11 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
+  const productBrand = product.brand ?? "UOUDIO";
   const pageUrl = `${SITE_URL}/products/${product.slug}`;
-  const pageTitle = `UOUDIO ${product.model} Bluetoothスピーカー｜仕様・特長・FAQ`;
+  const pageTitle = `${productBrand} ${product.model} Bluetoothスピーカー｜仕様・特長・FAQ`;
   return {
     title: pageTitle,
-    description: `${product.description} UOUDIO ${product.model}の仕様、特長、接続方法、よくある質問、Amazon購入後サポートをご案内します。`,
+    description: `${product.description} ${productBrand} ${product.model}の仕様、特長、接続方法、よくある質問、Amazon購入後サポートをご案内します。`,
     keywords: [`UOUDIO ${product.model}`, "Bluetoothスピーカー", "ワイヤレススピーカー", ...product.tags],
     alternates: { canonical: pageUrl },
     openGraph: {
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: SITE_NAME,
       title: pageTitle,
       description: product.description,
-      images: [{ url: absoluteUrl(product.image), width: 1500, height: 1500, alt: `UOUDIO ${product.model} Bluetoothスピーカー` }],
+      images: [{ url: absoluteUrl(product.image), width: 1500, height: 1500, alt: `${productBrand} ${product.model} Bluetoothスピーカー` }],
     },
     twitter: {
       card: "summary_large_image",
@@ -224,13 +225,45 @@ const s20Faq = [
   },
 ];
 
+const mg2Faq = [
+  {
+    q: "最大17時間再生の条件は？",
+    a: "音量30％での目安です。実際の再生時間は、音量、ライト、EQ、再生内容、接続方法、周囲温度、バッテリーの状態によって異なります。",
+  },
+  {
+    q: "EQとアンビエントライトは切り替えられますか？",
+    a: "はい。音質は3種類のEQモードから選べます。ライトは常時点灯、呼吸、赤色点滅の3モードに加え、消灯にも対応しています。",
+  },
+  {
+    q: "TWSステレオで2台を接続する方法は？",
+    a: "同じMG IIを2台用意し、スマートフォンと接続する前にスピーカー同士をTWSペアリングします。接続後は合計48Wの広がりあるステレオ再生を楽しめます。",
+  },
+  {
+    q: "IP67なら水中でも使用できますか？",
+    a: "防水・防塵性能は試験条件に基づくもので、水中での常用や濡れた状態での充電は避けてください。使用前に端子カバーを確実に閉じ、使用後は十分に乾かしてください。",
+  },
+  {
+    q: "Bluetooth以外でも再生できますか？",
+    a: "はい。Bluetooth 6.0のほか、USBメモリー、microSDカード、AUX入力に対応しています。",
+  },
+  {
+    q: "カラーは何色ありますか？",
+    a: "ブラック＆ブラスとクリームの2色です。本サイトではブラック＆ブラスを主に掲載しています。",
+  },
+  {
+    q: "保証や交換について相談したいです。",
+    a: "2年間の品質保証があります。Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番MG II、症状、写真または動画をお送りください。",
+  },
+];
+
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : faq;
+  const productFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : product.slug === "gb03" ? mg2Faq : faq;
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
   const formattedPrice = product.price ? new Intl.NumberFormat("ja-JP").format(product.price) : null;
+  const productBrand = product.brand ?? "UOUDIO";
   const productUrl = `${SITE_URL}/products/${product.slug}`;
   const productImages = [product.image, product.banner, ...(product.gallery?.map((item) => item.src) ?? [])]
     .filter((image): image is string => Boolean(image))
@@ -239,8 +272,8 @@ export default async function ProductPage({ params }: Props) {
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: `UOUDIO ${product.model} Bluetoothスピーカー`,
-    brand: { "@type": "Brand", name: "UOUDIO" },
+    name: `${productBrand} ${product.model} Bluetoothスピーカー`,
+    brand: { "@type": "Brand", name: productBrand },
     url: productUrl,
     sku: product.model,
     model: product.model,
@@ -255,7 +288,7 @@ export default async function ProductPage({ params }: Props) {
     ...(product.manualUrl ? {
       subjectOf: {
         "@type": "DigitalDocument",
-        name: `UOUDIO ${product.model} 取扱説明書`,
+        name: `${productBrand} ${product.model} 取扱説明書`,
         encodingFormat: "application/pdf",
         url: absoluteUrl(product.manualUrl),
       },
@@ -304,11 +337,23 @@ export default async function ProductPage({ params }: Props) {
         <section className="detail-hero">
           <div className="detail-copy">
             <p className="eyebrow"><span /> {product.type}</p>
-            <p className="detail-brand">UOUDIO</p>
+            <p className="detail-brand">{productBrand}</p>
             <h1>{product.model}</h1>
             <h2>{product.tagline}</h2>
             <p>{product.description}</p>
             <div className="detail-tags">{product.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+            {product.colors && (
+              <div className={styles.colorOptions} aria-label="カラーバリエーション">
+                <p>カラーバリエーション</p>
+                <div>
+                  {product.colors.map((color, index) => (
+                    <span key={color.name} className={index === 0 ? styles.primaryColor : ""}>
+                      <i style={{ backgroundColor: color.swatch }} />{color.name}{index === 0 && <small>メイン掲載</small>}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
             {formattedPrice && (
               <div className={styles.priceBlock}>
                 <span>Amazon販売価格</span>
@@ -322,7 +367,7 @@ export default async function ProductPage({ params }: Props) {
             </div>
           </div>
           <div className={`detail-image detail-${product.slug}`}>
-            <Image src={product.image} alt={`UOUDIO ${product.model} Bluetoothスピーカー`} width={1500} height={1500} priority />
+            <Image src={product.image} alt={`${productBrand} ${product.model} Bluetoothスピーカー`} width={1500} height={1500} priority />
           </div>
         </section>
 
@@ -357,7 +402,7 @@ export default async function ProductPage({ params }: Props) {
               <div key={spec.label}><dt>{spec.label}</dt><dd>{spec.value}{spec.note && <small>{spec.note}</small>}</dd></div>
             ))}
             <div><dt>製品型番</dt><dd>{product.model}</dd></div>
-            <div><dt>ブランド</dt><dd>UOUDIO</dd></div>
+            <div><dt>ブランド</dt><dd>{productBrand}</dd></div>
           </dl>
           <p className="spec-note">※ 表記は提供資料に基づきます。実際の再生時間や使用感は、音量・再生内容・周囲温度などにより異なります。</p>
         </section>
@@ -402,7 +447,7 @@ export default async function ProductPage({ params }: Props) {
 
         <section className="other-products section">
           <div className="section-heading compact"><p className="eyebrow"><span /> OTHER PRODUCTS</p><h2>ほかの製品を見る</h2></div>
-          <div>{products.filter((item) => item.slug !== product.slug).slice(0, 3).map((item) => <a href={`/products/${item.slug}`} key={item.slug}><Image src={item.image} alt={`UOUDIO ${item.model}`} width={500} height={500} /><span>{item.model}<i>→</i></span></a>)}</div>
+          <div>{products.filter((item) => item.slug !== product.slug).slice(0, 3).map((item) => <a href={`/products/${item.slug}`} key={item.slug}><Image src={item.image} alt={`${item.brand ?? "UOUDIO"} ${item.model}`} width={500} height={500} /><span>{item.model}<i>→</i></span></a>)}</div>
         </section>
       </main>
 
