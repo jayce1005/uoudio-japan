@@ -16,12 +16,19 @@ export default function SiteFooter() {
         </div>
 
         <nav className="site-footer-nav" aria-label="フッターナビゲーション">
-          <div>
+          <div className="footer-products">
             <p>PRODUCTS</p>
-            <a href="/#lineup">製品一覧</a>
-            <Link href="/products/s21">S16</Link>
-            <Link href="/products/s12">S12</Link>
-            <Link href="/products/s11">S11</Link>
+            <a className="footer-all-products" href="/#lineup">すべての製品を見る <span aria-hidden="true">→</span></a>
+            <div className="footer-product-grid">
+              <Link href="/products/s21"><span>01</span>S16</Link>
+              <Link href="/products/s12"><span>02</span>S12</Link>
+              <Link href="/products/s19"><span>03</span>X2 PRO</Link>
+              <Link href="/products/s20"><span>04</span>S20</Link>
+              <Link href="/products/s11"><span>05</span>S11</Link>
+              <Link href="/products/gb03"><span>06</span>MG II</Link>
+              <Link href="/products/gb-mini"><span>07</span>GB 01</Link>
+              <Link href="/products/s2"><span>08</span>S2</Link>
+            </div>
           </div>
           <div>
             <p>ABOUT</p>
