@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- native navigation avoids stalled client routing on the Cloudflare runtime */
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SITE_NAME, SITE_URL, SUPPORT_EMAIL } from "../../site-config";
 import SiteFooter from "../../site-footer";
 import SiteHeader from "../../site-header";
@@ -48,7 +48,7 @@ export default function ContactPage() {
         cta={{ href: "/support/manuals", label: "説明書を探す" }}
       />
       <main className="support-page">
-        <div className="support-breadcrumbs"><Link href="/">ホーム</Link><span>›</span><b>お問い合わせ</b></div>
+        <div className="support-breadcrumbs"><a href="/">ホーム</a><span>›</span><b>お問い合わせ</b></div>
         <section className="support-hero">
           <div>
             <p className="support-hero-label">SUPPORT / CONTACT</p>
@@ -56,7 +56,7 @@ export default function ContactPage() {
           </div>
           <div className="support-hero-copy">
             <p>製品の接続や充電、使い方、保証・交換について、日本語でご案内します。お問い合わせ前に、製品型番とAmazon注文番号をご用意いただくと確認がスムーズです。</p>
-            <div className="support-hero-links"><Link href="/support/manuals">取扱説明書を確認する</Link><a href="#contact-options">問い合わせ方法を見る</a></div>
+            <div className="support-hero-links"><a href="/support/manuals">取扱説明書を確認する</a><a href="#contact-options">問い合わせ方法を見る</a></div>
           </div>
         </section>
 

@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- native navigation avoids stalled client routing on the Cloudflare runtime */
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { products } from "../../products";
 import { SITE_NAME, SITE_URL } from "../../site-config";
 import SiteFooter from "../../site-footer";
@@ -50,7 +50,7 @@ export default function ManualsPage() {
         cta={{ href: "/support/contact", label: "問い合わせる" }}
       />
       <main className="support-page">
-        <div className="support-breadcrumbs"><Link href="/">ホーム</Link><span>›</span><b>取扱説明書ダウンロード</b></div>
+        <div className="support-breadcrumbs"><a href="/">ホーム</a><span>›</span><b>取扱説明書ダウンロード</b></div>
         <section className="support-hero">
           <div>
             <p className="support-hero-label">SUPPORT / MANUALS</p>
@@ -58,7 +58,7 @@ export default function ManualsPage() {
           </div>
           <div className="support-hero-copy">
             <p>お使いの製品型番を選び、日本語取扱説明書をPDFでご確認ください。型番は本体、パッケージ、Amazon注文履歴などに記載されています。</p>
-            <div className="support-hero-links"><Link href="/support/contact">製品について問い合わせる</Link><a href="#manual-list">型番を選ぶ</a></div>
+            <div className="support-hero-links"><a href="/support/contact">製品について問い合わせる</a><a href="#manual-list">型番を選ぶ</a></div>
           </div>
         </section>
 
@@ -70,9 +70,9 @@ export default function ManualsPage() {
           <div className="manual-list">
             {manualProducts.map((product, index) => (
               <article className="manual-card" key={product.slug}>
-                <Link className="manual-card-image" href={`/products/${product.slug}`} aria-label={`${product.model} 製品ページを見る`}>
+                <a className="manual-card-image" href={`/products/${product.slug}`} aria-label={`${product.model} 製品ページを見る`}>
                   <Image src={product.image} alt={`${product.model} Bluetoothスピーカー`} width={500} height={500} />
-                </Link>
+                </a>
                 <div className="manual-card-copy">
                   <small>{String(index + 1).padStart(2, "0")} / USER MANUAL</small>
                   <h2>{product.model}</h2>

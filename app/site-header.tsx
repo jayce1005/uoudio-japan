@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+/* eslint-disable @next/next/no-html-link-for-pages -- native navigation avoids stalled client routing on the Cloudflare runtime */
 type HeaderLink = {
   href: string;
   label: string;
@@ -31,9 +30,9 @@ const supportLinks = [
 export default function SiteHeader({ className = "", links = [], cta }: SiteHeaderProps) {
   return (
     <header className={`site-header ${className}`.trim()}>
-      <Link className="brand" href="/" aria-label="UOUDIO Japan ホーム">
+      <a className="brand" href="/" aria-label="UOUDIO Japan ホーム">
         UOUDIO<span>®</span>
-      </Link>
+      </a>
 
       <nav aria-label="メインナビゲーション">
         {links.map((link) => <a href={link.href} key={link.href}>{link.label}</a>)}
@@ -42,17 +41,17 @@ export default function SiteHeader({ className = "", links = [], cta }: SiteHead
           <div className="header-support-dropdown">
             <small>SUPPORT</small>
             {supportLinks.map((link) => (
-              <Link href={link.href} key={link.href}>
+              <a href={link.href} key={link.href}>
                 <b>{link.label}</b>
                 <span>{link.description}</span>
-              </Link>
+              </a>
             ))}
           </div>
         </details>
       </nav>
 
       <div className="header-actions">
-        <Link className="header-support-shortcut" href="/support/contact">サポート</Link>
+        <a className="header-support-shortcut" href="/support/contact">サポート</a>
         {cta && (
           <a
             className="header-cta"
