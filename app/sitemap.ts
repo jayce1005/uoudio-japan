@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { products } from "./products";
 import { SITE_URL } from "./site-config";
 
-const LAST_UPDATED = new Date("2026-08-14T00:00:00+09:00");
+const LAST_UPDATED = new Date("2026-09-02T00:00:00+09:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const productPages: MetadataRoute.Sitemap = products.map((product) => ({
@@ -25,6 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${SITE_URL}/home-hero-lifestyle-v1.png`,
         ...products.map((product) => `${SITE_URL}${product.image}`),
       ],
+    },
+    {
+      url: `${SITE_URL}/support/contact`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/support/manuals`,
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     ...productPages,
   ];

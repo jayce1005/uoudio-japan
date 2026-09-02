@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { products } from "./products";
-import { DEFAULT_DESCRIPTION, HOME_TITLE, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "./site-config";
+import { DEFAULT_DESCRIPTION, HOME_TITLE, SITE_URL, absoluteUrl } from "./site-config";
 import SiteFooter from "./site-footer";
+import SiteHeader from "./site-header";
 
 const bestsellerSlugs = ["s21", "s12", "s11"];
 const homeProductSlugs = ["s21", "s12", "s19", "s20", "s11", "gb03", "gb-mini", "s2"];
@@ -48,15 +49,14 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
-      <header className="site-header home-header">
-        <a className="brand" href="#top" aria-label="UOUDIO ホーム">UOUDIO<span>®</span></a>
-        <nav aria-label="メインナビゲーション">
-          <a href="#lineup">製品一覧</a>
-          <a href="#about">UOUDIOについて</a>
-          <a href="#support">サポート</a>
-        </nav>
-        <a className="header-cta" href="#lineup">製品を探す</a>
-      </header>
+      <SiteHeader
+        className="home-header"
+        links={[
+          { href: "/#lineup", label: "製品一覧" },
+          { href: "/#about", label: "UOUDIOについて" },
+        ]}
+        cta={{ href: "/#lineup", label: "製品を探す" }}
+      />
 
       <main className="home" id="top">
         <section className="home-banner" aria-label="UOUDIO メインビジュアル">
@@ -140,17 +140,11 @@ export default function Home() {
               <p>製品の使い方やよくあるご質問、保証・交換のご相談窓口をご案内しています。</p>
             </div>
             <div className="home-aftercare-links">
-              <a href="#lineup">
-                <span>01</span><b>製品別の使い方・FAQ</b><small>お持ちの製品を選ぶ</small>
+              <a href="/support/contact">
+                <span>01</span><b>お問い合わせ</b><small>保証・交換・製品について相談する</small>
               </a>
-              <a href="#lineup">
-                <span>02</span><b>仕様・取扱情報</b><small>製品ページで確認する</small>
-              </a>
-              <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">
-                <span>03</span><b>保証・交換のご相談</b><small>Amazon注文履歴から販売元へ連絡</small>
-              </a>
-              <a href={`mailto:${SUPPORT_EMAIL}`}>
-                <span>04</span><b>メールでのお問い合わせ</b><small>{SUPPORT_EMAIL}</small>
+              <a href="/support/manuals">
+                <span>02</span><b>取扱説明書ダウンロード</b><small>製品型番からPDFを選ぶ</small>
               </a>
             </div>
           </div>

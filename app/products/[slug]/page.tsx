@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getProduct, products } from "../../products";
 import { SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "../../site-config";
 import SiteFooter from "../../site-footer";
+import SiteHeader from "../../site-header";
 import ProductHero from "./product-hero";
 import styles from "./page.module.css";
 
@@ -338,11 +339,17 @@ export default async function ProductPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <header className="site-header product-header">
-        <a className="brand" href="/" aria-label="UOUDIO ホーム">UOUDIO<span>®</span></a>
-        <nav aria-label="製品ナビゲーション"><a href="#features">特長</a><a href="#specs">仕様</a><a href="#warranty">保証</a>{product.manualUrl && <a href="#manual">説明書</a>}<a href="#faq">FAQ</a><a href="#support">サポート</a></nav>
-        <a className="header-cta" href={amazonUrl} target="_blank" rel="noreferrer">Amazonで見る</a>
-      </header>
+      <SiteHeader
+        className="product-header"
+        links={[
+          { href: "#features", label: "特長" },
+          { href: "#specs", label: "仕様" },
+          { href: "#warranty", label: "保証" },
+          ...(product.manualUrl ? [{ href: "#manual", label: "説明書" }] : []),
+          { href: "#faq", label: "FAQ" },
+        ]}
+        cta={{ href: amazonUrl, label: "Amazonで見る", external: true }}
+      />
 
       <main className="product-page">
         <div className="breadcrumbs"><a href="/">ホーム</a><span>›</span><a href="/#lineup">製品一覧</a><span>›</span><b>{product.model}</b></div>

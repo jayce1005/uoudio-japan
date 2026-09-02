@@ -3,6 +3,7 @@ import "./globals.css";
 import "./brand-logo.css";
 import "./site-footer.css";
 import "./japan-theme.css";
+import "./support/support.css";
 import { DEFAULT_DESCRIPTION, HOME_TITLE, SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "./site-config";
 
 export const metadata: Metadata = {

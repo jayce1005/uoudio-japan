@@ -89,6 +89,27 @@
   outline-offset: 4px;
 }
 
+.site-footer-nav .footer-support-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 54px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-support-link b {
+  color: #d2d7dc;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.footer-support-link span {
+  color: #77838e;
+  font-size: 9px;
+}
+
 .footer-products .footer-all-products {
   justify-content: space-between;
   width: 100%;

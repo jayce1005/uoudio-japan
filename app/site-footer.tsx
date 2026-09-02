@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- native hash navigation is intentional in the global footer */
 import Image from "next/image";
 import Link from "next/link";
-import { SUPPORT_EMAIL } from "./site-config";
 
 export default function SiteFooter() {
   return (
@@ -37,10 +36,14 @@ export default function SiteFooter() {
           </div>
           <div>
             <p>SUPPORT</p>
-            <a href="/#support">ご購入後のサポート</a>
-            <a href="/#lineup" aria-label="製品を選んで製品別FAQを見る">製品別FAQ</a>
-            <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
-            <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">Amazon注文履歴 ↗</a>
+            <Link className="footer-support-link" href="/support/contact">
+              <b>お問い合わせ</b>
+              <span>保証・交換・製品のご相談</span>
+            </Link>
+            <Link className="footer-support-link" href="/support/manuals">
+              <b>取扱説明書ダウンロード</b>
+              <span>製品型番からPDFを選ぶ</span>
+            </Link>
           </div>
         </nav>
       </div>
