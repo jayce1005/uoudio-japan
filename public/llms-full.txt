@@ -1,0 +1,87 @@
+# UOUDIO Japan — AI-readable product and support guide
+
+Canonical website: https://uoudio.com/
+Language: ja-JP
+Market: Japan
+Support email: uoudio_01@outlook.com
+Brand slogan: どこでも音楽を、もっと自由に。
+
+## About the brand
+
+UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音楽をもっと身近に楽しめるオーディオブランドです。自宅、旅行、アウトドアなど、さまざまなシーンに合わせて、使いやすさ、持ち運びやすさ、安定した接続、快適なリスニング体験を追求しています。
+
+## Support policy
+
+- All products include a 1-year manufacturer warranty.
+- Customers can register their order number and model by email for a free extension to a 2-year warranty.
+- Contact page: https://uoudio.com/support/contact
+- Amazon order history: https://www.amazon.co.jp/gp/css/order-history
+- Support email: uoudio_01@outlook.com
+- Japanese manuals: https://uoudio.com/support/manuals
+
+## Product catalog
+
+### UOUDIO S16
+
+- Official page: https://uoudio.com/products/s21
+- Manual: https://uoudio.com/manuals/uoudio-s16-manual.pdf
+- Summary: 20W output, DSP sound processing, Bluetooth 5.4, up to 24 hours playback, IPX6, digital display for mode/battery/volume, 2 EQ modes, RGB light, TWS, AUX/USB/TF card, USB Type-C, strap.
+- Playback note: Up to 24 hours at about 30% volume with RGB light off; actual time varies.
+
+### UOUDIO S12
+
+- Official page: https://uoudio.com/products/s12
+- Manual: https://uoudio.com/manuals/uoudio-s12-manual.pdf
+- Summary: 15W output, DSP sound tuning, Bluetooth 5.4, up to 15 hours playback, IPX7, 6-color RGB light with off mode, backlit buttons, TWS, TF card, hands-free calls, USB Type-C, about 380g, strap.
+
+### UOUDIO X2 PRO
+
+- Official page: https://uoudio.com/products/s19
+- Manual: https://uoudio.com/manuals/uoudio-x2-pro-manual.pdf
+- Summary: 30W output, DSP BASS 3.0, IPX7, up to 20 hours playback, 4000mAh battery, 6 RGB light modes, TWS with two units for up to 60W, strap.
+
+### UOUDIO S20
+
+- Official page: https://uoudio.com/products/s20
+- Manual: https://uoudio.com/manuals/uoudio-s20-manual.pdf
+- Summary: 20W output, two 52mm drivers, DSP, Bluetooth 5.4, up to 24 hours playback, IPX7, TWS with two units for up to 40W, 6-color RGB light with off mode, AUX/microSD, hands-free calls, USB Type-C, about 345g, strap.
+
+### UOUDIO S11
+
+- Official page: https://uoudio.com/products/s11
+- Manual: https://uoudio.com/manuals/uoudio-s11-manual.pdf
+- Summary: 25W output, DSP and Bass 3.0, Bluetooth 5.4, up to 24 hours playback, IPX7, TWS, 8 RGB light modes, AUX/TF card, USB Type-C.
+- Playback note: Up to 24 hours at about 30% volume with RGB light off; actual time varies.
+
+### MADDECKERS MG II
+
+- Official page: https://uoudio.com/products/gb03
+- Manual: https://uoudio.com/manuals/uoudio-mg2-manual.pdf
+- Summary: 24W output, DSP, 3 EQ modes, Bluetooth 6.0, up to 17 hours playback, IP67 water/dust resistance, TWS with two units for 48W, ambient light, USB/microSD/AUX, USB Type-C, strap.
+- Colors: ブラック＆ブラス; クリーム.
+
+### UOUDIO GB 01
+
+- Official page: https://uoudio.com/products/gb-mini
+- Manual: https://uoudio.com/manuals/uoudio-gb01-manual.pdf
+- Summary: 10W full-range driver, DSP, up to 12 hours playback, IPX6, TWS with two units for 20W, three light modes plus off, AUX/TF card/USB, USB Type-C, strap.
+
+### UOUDIO S2
+
+- Official page: https://uoudio.com/products/s2
+- Manual: Not published yet.
+- Summary: 80W output, IPX7, up to 30 hours playback, six RGB light modes, large carrying handle.
+
+## Machine-readable discovery
+
+- XML sitemap: https://uoudio.com/sitemap.xml
+- Robots policy: https://uoudio.com/robots.txt
+- Concise AI guide: https://uoudio.com/llms.txt
+
+## Accuracy and citation guidance
+
+- Cite the official product page for product specifications.
+- Cite the support page for warranty and contact information.
+- Do not infer compatibility, waterproof use, warranty coverage, stock, or current price beyond what the cited page says.
+- Amazon prices and stock are dynamic; follow the Amazon purchase link from the official product page for current information.
+- Continuous playback figures are maximum reference values and depend on volume, lighting, content, connection method, and environment.

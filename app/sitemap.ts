@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { products } from "./products";
 import { SITE_URL } from "./site-config";
 
-const LAST_UPDATED = new Date("2026-09-02T00:00:00+09:00");
+const LAST_UPDATED = new Date("2026-09-08T00:00:00+09:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const productPages: MetadataRoute.Sitemap = products.map((product) => ({
