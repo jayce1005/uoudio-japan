@@ -8,7 +8,8 @@
 
 - [公式ホーム・製品一覧](https://uoudio.com/): UOUDIOとMADDECKERSのBluetoothスピーカー全8モデル
 - [お問い合わせ・保証サポート](https://uoudio.com/support/contact): 1年間メーカー保証、無料の2年延長保証、Amazonまたはメールでの問い合わせ方法
-- [日本語取扱説明書](https://uoudio.com/support/manuals): 製品型番別PDFダウンロード
+- [日本語取扱説明書](https://uoudio.com/support/manuals): 製品型番別の接続方法・使い方・PDFダウンロード
+- [Bluetoothスピーカー使い方ガイド](https://uoudio.com/guide): 接続、TWS、リセット、充電、防水使用時の注意点
 - [XML sitemap](https://uoudio.com/sitemap.xml): 公開ページの機械可読インデックス
 - [詳細なAI向けサイト情報](https://uoudio.com/llms-full.txt): 製品一覧、主要仕様、公式リンク
 
@@ -22,6 +23,16 @@
 - [MADDECKERS MG II](https://uoudio.com/products/gb03): 24W、DSP、Bluetooth 6.0、IP67、最大17時間
 - [UOUDIO GB 01](https://uoudio.com/products/gb-mini): 10W、DSP、IPX6、最大12時間
 - [UOUDIO S2](https://uoudio.com/products/s2): 80W、IPX7、最大30時間、RGB
+
+## Model manuals and setup guides
+
+- [S16 接続方法・取扱説明書](https://uoudio.com/support/manuals/s16)
+- [S12 接続方法・取扱説明書](https://uoudio.com/support/manuals/s12)
+- [S11 接続方法・取扱説明書](https://uoudio.com/support/manuals/s11)
+- [X2 PRO 接続方法・取扱説明書](https://uoudio.com/support/manuals/x2-pro)
+- [S20 接続方法・取扱説明書](https://uoudio.com/support/manuals/s20)
+- [MG II 接続方法・取扱説明書](https://uoudio.com/support/manuals/mg-ii)
+- [GB 01 接続方法・取扱説明書](https://uoudio.com/support/manuals/gb-01)
 
 ## Contact
 

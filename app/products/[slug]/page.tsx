@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getManualGuideByProductSlug } from "../../manual-guides";
 import { getProduct, products } from "../../products";
 import { SITE_NAME, SITE_URL, SUPPORT_EMAIL, absoluteUrl } from "../../site-config";
 import SiteFooter from "../../site-footer";
@@ -20,17 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProduct(slug);
   if (!product) return {};
   const productBrand = product.brand ?? "UOUDIO";
+  const manualGuide = getManualGuideByProductSlug(product.slug);
   const pageUrl = `${SITE_URL}/products/${product.slug}`;
   const seoFeatures = product.tags
     .slice(0, 2)
     .map((tag) => tag.replace(/\s*\+\s*/g, "・"))
     .join("・");
   const pageTitle = `${productBrand} ${product.model}｜${seoFeatures} Bluetoothスピーカー`;
-  const pageDescription = `${productBrand} ${product.model}は、${product.tags.slice(0, 3).join("、")}に対応するポータブルBluetoothスピーカーです。仕様、特長、取扱説明書、FAQ、保証、Amazon購入情報をご案内します。`;
+  const pageDescription = `${productBrand} ${product.model}は、${product.tags.slice(0, 3).join("、")}に対応するポータブルBluetoothスピーカーです。仕様、接続方法、操作ガイド、取扱説明書、FAQ、保証情報をご案内します。`;
   return {
     title: { absolute: `${pageTitle}｜UOUDIO Japan` },
     description: pageDescription,
-    keywords: [`UOUDIO ${product.model}`, "Bluetoothスピーカー", "ワイヤレススピーカー", ...product.tags],
+    keywords: [`UOUDIO ${product.model}`, "Bluetoothスピーカー", "ワイヤレススピーカー", ...product.tags, ...(manualGuide?.keywords ?? [])],
     alternates: { canonical: pageUrl },
     openGraph: {
       type: "website",
@@ -267,6 +269,7 @@ export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
+  const manualGuide = getManualGuideByProductSlug(product.slug);
   const baseFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : product.slug === "gb03" ? mg2Faq : faq;
   const productFaq = baseFaq.map((item) => item.q.includes("保証や交換") ? {
     q: "保証期間と2年延長サービスについて教えてください。",
@@ -299,12 +302,20 @@ export default async function ProductPage({ params }: Props) {
       value: spec.value,
     })),
     ...(product.manualUrl ? {
-      subjectOf: {
-        "@type": "DigitalDocument",
-        name: `${productBrand} ${product.model} 取扱説明書`,
-        encodingFormat: "application/pdf",
-        url: absoluteUrl(product.manualUrl),
-      },
+      subjectOf: [
+        ...(manualGuide ? [{
+          "@type": "TechArticle",
+          name: manualGuide.title,
+          url: `${SITE_URL}/support/manuals/${manualGuide.slug}`,
+          inLanguage: "ja-JP",
+        }] : []),
+        {
+          "@type": "DigitalDocument",
+          name: `${productBrand} ${product.model} 取扱説明書 PDF`,
+          encodingFormat: "application/pdf",
+          url: absoluteUrl(product.manualUrl),
+        },
+      ],
     } : {}),
     ...(product.amazonUrl ? { sameAs: [product.amazonUrl] } : {}),
     ...(product.amazonUrl && product.price ? {
@@ -373,8 +384,10 @@ export default async function ProductPage({ params }: Props) {
             <div>
               <small>UOUDIO AFTER-SALES CARE</small>
               <b>購入後も、安心してお使いいただけます。</b>
-              {product.manualUrl
-                ? <a className="assurance-manual-link" href={product.manualUrl} target="_blank" rel="noreferrer">{product.model} 取扱説明書を見る <span>↗</span></a>
+              {manualGuide
+                ? <a className="assurance-manual-link" href={`/support/manuals/${manualGuide.slug}`}>{product.model} 接続方法・使い方を見る <span>→</span></a>
+                : product.manualUrl
+                ? <a className="assurance-manual-link" href={product.manualUrl} target="_blank" rel="noreferrer">{product.model} 取扱説明書 PDF <span>↗</span></a>
                 : <a className="assurance-manual-link" href="#faq">製品別FAQを見る <span>↓</span></a>}
             </div>
           </div>
@@ -449,10 +462,18 @@ export default async function ProductPage({ params }: Props) {
               <h2>取扱説明書</h2>
               <p>詳しい操作方法や安全上のご注意は、PDF版の取扱説明書でご確認いただけます。</p>
             </div>
-            <a className="manual-download" href={product.manualUrl} target="_blank" rel="noreferrer">
-              <span><small>PDF / {product.model}</small><b>取扱説明書を開く</b></span>
-              <i>↗</i>
-            </a>
+            <div className="manual-download-options">
+              {manualGuide && (
+                <a className="manual-download manual-guide-link" href={`/support/manuals/${manualGuide.slug}`}>
+                  <span><small>ONLINE GUIDE / {product.model}</small><b>接続方法・使い方を見る</b></span>
+                  <i>→</i>
+                </a>
+              )}
+              <a className="manual-download" href={product.manualUrl} target="_blank" rel="noreferrer">
+                <span><small>PDF / {product.model}</small><b>取扱説明書を開く</b></span>
+                <i>↗</i>
+              </a>
+            </div>
           </section>
         )}
 

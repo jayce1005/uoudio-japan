@@ -616,6 +616,20 @@ body {
   transition: background .2s ease, border-color .2s ease, transform .2s ease;
 }
 
+.manual-download-options {
+  display: grid;
+  gap: 12px;
+}
+
+.manual-download.manual-guide-link {
+  background: #173f62;
+  border-color: #173f62;
+}
+
+.manual-download.manual-guide-link small { color: #9bc2df; }
+.manual-download.manual-guide-link b { color: #fff; }
+.manual-download.manual-guide-link i { color: #9ed1f5; }
+
 .manual-download:hover {
   background: #e9eef0;
   border-color: #c8d0d4;

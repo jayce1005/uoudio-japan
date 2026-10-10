@@ -41,7 +41,11 @@ export default function SiteFooter() {
             </a>
             <a className="footer-support-link" href="/support/manuals">
               <b>取扱説明書ダウンロード</b>
-              <span>製品型番からPDFを選ぶ</span>
+              <span>接続方法・使い方・PDF</span>
+            </a>
+            <a className="footer-support-link" href="/guide">
+              <b>使い方ガイド</b>
+              <span>接続・設定・お手入れ</span>
             </a>
           </div>
         </nav>

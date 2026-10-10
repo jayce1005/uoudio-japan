@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- native navigation avoids stalled client routing on the Cloudflare runtime */
 import type { Metadata } from "next";
 import Image from "next/image";
+import { getManualGuideByProductSlug } from "../../manual-guides";
 import { products } from "../../products";
 import { SITE_NAME, SITE_URL } from "../../site-config";
 import SiteFooter from "../../site-footer";
@@ -8,7 +9,7 @@ import SiteHeader from "../../site-header";
 
 const PAGE_URL = `${SITE_URL}/support/manuals`;
 const TITLE = "取扱説明書ダウンロード｜UOUDIO Bluetoothスピーカー";
-const DESCRIPTION = "UOUDIO Bluetoothスピーカーの日本語取扱説明書を製品型番から選んでPDFで閲覧・ダウンロードできます。S16、S12、X2 PRO、S20、S11、MG II、GB 01などに対応。";
+const DESCRIPTION = "UOUDIO Bluetoothスピーカーの日本語取扱説明書、Bluetooth接続方法、TWS、リセット、ライト操作を製品型番から確認できます。S16、S12、X2 PRO、S20、S11、MG II、GB 01に対応。";
 const manualProductSlugs = ["s21", "s12", "s19", "s20", "s11", "gb03", "gb-mini", "s2"];
 const manualProductOrder = new Map(manualProductSlugs.map((slug, index) => [slug, index]));
 const manualProducts = [...products].sort(
@@ -37,7 +38,9 @@ export default function ManualsPage() {
         "@type": "ListItem",
         position: index + 1,
         name: `${product.model} 日本語取扱説明書`,
-        url: `${SITE_URL}${product.manualUrl}`,
+        url: getManualGuideByProductSlug(product.slug)
+          ? `${SITE_URL}/support/manuals/${getManualGuideByProductSlug(product.slug)?.slug}`
+          : `${SITE_URL}${product.manualUrl}`,
       })),
     },
   };
@@ -57,7 +60,7 @@ export default function ManualsPage() {
             <h1>取扱説明書<br />ダウンロード</h1>
           </div>
           <div className="support-hero-copy">
-            <p>お使いの製品型番を選び、日本語取扱説明書をPDFでご確認ください。型番は本体、パッケージ、Amazon注文履歴などに記載されています。</p>
+            <p>お使いの製品型番を選び、Bluetooth接続、基本操作、困ったときの確認事項、日本語取扱説明書PDFをご確認ください。型番は本体またはパッケージに記載されています。</p>
             <div className="support-hero-links"><a href="/support/contact">製品について問い合わせる</a><a href="#manual-list">型番を選ぶ</a></div>
           </div>
         </section>
@@ -77,9 +80,14 @@ export default function ManualsPage() {
                   <small>{String(index + 1).padStart(2, "0")} / USER MANUAL</small>
                   <h2>{product.model}</h2>
                   <p>{product.brand ?? "UOUDIO"} Bluetoothスピーカー</p>
-                  {product.manualUrl
-                    ? <a href={product.manualUrl} target="_blank" rel="noreferrer">日本語取扱説明書 PDF <span>↗</span></a>
-                    : <span className="manual-pending">取扱説明書は準備中です</span>}
+                  {product.manualUrl ? (
+                    <div className="manual-card-actions">
+                      {getManualGuideByProductSlug(product.slug) && (
+                        <a href={`/support/manuals/${getManualGuideByProductSlug(product.slug)?.slug}`}>接続方法・使い方を見る <span>→</span></a>
+                      )}
+                      <a href={product.manualUrl} target="_blank" rel="noreferrer">日本語取扱説明書 PDF <span>↗</span></a>
+                    </div>
+                  ) : <span className="manual-pending">取扱説明書は準備中です</span>}
                 </div>
               </article>
             ))}

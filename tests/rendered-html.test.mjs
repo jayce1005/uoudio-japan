@@ -1,19 +1,13 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
-
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${pathname}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -28,64 +22,47 @@ async function render() {
   );
 }
 
-test("server-renders the starter loading skeleton", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
-  const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
+async function htmlFor(pathname) {
+  const response = await render(pathname);
+  assert.equal(response.status, 200, `${pathname} should return 200`);
   assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
+    response.headers.get("content-type") ?? "",
+    /^text\/html\b/i,
+    `${pathname} should return HTML`,
   );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
+  return response.text();
+}
+
+test("server-renders the Japanese storefront with crawlable support links", async () => {
+  const html = await htmlFor("/");
+
+  assert.match(html, /<html lang="ja">/i);
+  assert.match(html, /<title>UOUDIO Japan公式/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/uoudio\.com"/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /href="\/support\/manuals"/);
+  assert.match(html, /href="\/support\/contact"/);
+  assert.match(html, /href="\/guide"/);
+  assert.match(html, /UOUDIO S16/);
+  assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
+test("renders the editorial guide and model-specific manual pages", async () => {
+  const [guideIndex, guideArticle, manualIndex, manualDetail] = await Promise.all([
+    htmlFor("/guide"),
+    htmlFor("/guide/bluetooth-speaker-connection-reset-guide"),
+    htmlFor("/support/manuals"),
+    htmlFor("/support/manuals/s16"),
   ]);
 
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
-
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
-
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
-
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
+  assert.match(guideIndex, /Bluetoothスピーカー使い方ガイド/);
+  assert.match(guideIndex, /bluetooth-speaker-connection-reset-guide/);
+  assert.match(guideArticle, /Bluetoothスピーカーが接続できないときの確認方法/);
+  assert.match(guideArticle, /"@type":"Article"/);
+  assert.match(manualIndex, /接続方法・使い方を見る/);
+  assert.match(manualIndex, /href="\/support\/manuals\/s16"/);
+  assert.match(manualDetail, /S16 取扱説明書/);
+  assert.match(manualDetail, /"@type":"TechArticle"/);
+  assert.match(manualDetail, /Bluetoothの/);
+  assert.match(manualDetail, /接続方法/);
 });

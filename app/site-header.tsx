@@ -23,7 +23,12 @@ const supportLinks = [
   {
     href: "/support/manuals",
     label: "取扱説明書ダウンロード",
-    description: "製品型番からPDFを選ぶ",
+    description: "接続方法・使い方・PDF",
+  },
+  {
+    href: "/guide",
+    label: "使い方ガイド",
+    description: "接続・設定・お手入れ",
   },
 ];
 
