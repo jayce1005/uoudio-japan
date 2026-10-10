@@ -221,7 +221,7 @@ img { display: block; }
 .support-route-actions { display:grid; gap:10px; }
 .support-route-actions > a { align-items:center; border:1px solid #d8e0e8; display:grid; gap:14px; grid-template-columns:40px 1fr auto; min-height:74px; padding:12px 17px; transition:border-color .2s,transform .2s; }
 .support-route-actions > a:hover { border-color:#7fa8c9; transform:translateY(-1px); }
-.support-route-actions .amazon-support { background:#fffaf0; border-color:#ead8ae; }
+.support-route-actions .platform-support { background:#fffaf0; border-color:#ead8ae; }
 .support-route-actions .email-support { background:#f5faff; }
 .support-icon { align-items:center; background:#10243d; border-radius:50%; color:#fff; display:flex; font:800 13px Arial,sans-serif; height:38px; justify-content:center; width:38px; }
 .email-support .support-icon { background:#326d9f; font-size:14px; }

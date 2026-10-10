@@ -66,3 +66,18 @@ test("renders the editorial guide and model-specific manual pages", async () => 
   assert.match(manualDetail, /Bluetoothの/);
   assert.match(manualDetail, /接続方法/);
 });
+
+test("presents platform-neutral support and warranty information", async () => {
+  const [contact, product] = await Promise.all([
+    htmlFor("/support/contact"),
+    htmlFor("/products/s21"),
+  ]);
+
+  assert.match(contact, /どこで購入しても/);
+  assert.match(contact, /購入したプラットフォーム・販売店名/);
+  assert.match(contact, /Amazon、楽天市場、TikTok Shop/);
+  assert.doesNotMatch(contact, /Amazonから問い合わせる/);
+  assert.match(product, /購入先を問わず受付/);
+  assert.match(product, /購入先の注文番号または購入明細/);
+  assert.doesNotMatch(product, /Amazonの注文番号が購入証明/);
+});

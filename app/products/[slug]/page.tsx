@@ -67,11 +67,11 @@ const faq = [
   },
   {
     q: "充電できない、または電源が入りません。",
-    a: "充電端子の水分や異物を取り除き、適合するケーブルと電源アダプターで十分に充電してください。改善しない場合はAmazonの注文履歴から販売元へご連絡ください。",
+    a: "充電端子の水分や異物を取り除き、適合するケーブルと電源アダプターで十分に充電してください。改善しない場合は購入先、注文番号、製品型番をご用意のうえ、サポート窓口へご連絡ください。",
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "Amazonの注文履歴から対象商品を開き、「出品者に連絡」から注文番号、製品型番、症状、写真または動画をお送りください。",
+    a: "購入したプラットフォームや販売店を問わずサポートします。購入先、注文番号、製品型番、症状、写真または動画をサポート窓口へお送りください。",
   },
 ];
 
@@ -102,7 +102,7 @@ const gbMiniFaq = [
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番GB 01、症状、写真または動画をお送りください。",
+    a: "購入したプラットフォームや販売店を問わずサポートします。購入先、注文番号、製品型番GB 01、症状、写真または動画をサポート窓口へお送りください。",
   },
 ];
 
@@ -133,7 +133,7 @@ const s12Faq = [
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S12、症状、写真または動画をお送りください。",
+    a: "購入したプラットフォームや販売店を問わずサポートします。購入先、注文番号、製品型番S12、症状、写真または動画をサポート窓口へお送りください。",
   },
 ];
 
@@ -164,7 +164,7 @@ const s16Faq = [
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S16、症状、写真または動画をお送りください。",
+    a: "購入したプラットフォームや販売店を問わずサポートします。購入先、注文番号、製品型番S16、症状、写真または動画をサポート窓口へお送りください。",
   },
 ];
 
@@ -195,7 +195,7 @@ const s11Faq = [
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S11、症状、写真または動画をお送りください。",
+    a: "購入したプラットフォームや販売店を問わずサポートします。購入先、注文番号、製品型番S11、症状、写真または動画をサポート窓口へお送りください。",
   },
 ];
 
@@ -230,7 +230,7 @@ const s20Faq = [
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番S20、症状、写真または動画をお送りください。",
+    a: "購入したプラットフォームや販売店を問わずサポートします。購入先、注文番号、製品型番S20、症状、写真または動画をサポート窓口へお送りください。",
   },
 ];
 
@@ -261,7 +261,7 @@ const mg2Faq = [
   },
   {
     q: "保証や交換について相談したいです。",
-    a: "2年間の品質保証があります。Amazonの注文履歴から対象商品を開き、販売元へ注文番号、製品型番MG II、症状、写真または動画をお送りください。",
+    a: "通常のメーカー保証は購入日から1年間で、無料登録により2年間へ延長できます。購入先、注文番号、製品型番MG II、症状、写真または動画をサポート窓口へお送りください。",
   },
 ];
 
@@ -273,13 +273,13 @@ export default async function ProductPage({ params }: Props) {
   const baseFaq = product.slug === "gb-mini" ? gbMiniFaq : product.slug === "s12" ? s12Faq : product.slug === "s21" ? s16Faq : product.slug === "s11" ? s11Faq : product.slug === "s20" ? s20Faq : product.slug === "gb03" ? mg2Faq : faq;
   const productFaq = baseFaq.map((item) => item.q.includes("保証や交換") ? {
     q: "保証期間と2年延長サービスについて教えてください。",
-    a: `通常のメーカー保証は購入日から1年間です。無料の延長保証をご希望の場合は、Amazonの注文番号と製品型番「${product.model}」をサポート窓口へお送りください。登録確認後、保証期間を2年間へ延長します。`,
+    a: `通常のメーカー保証は購入日から1年間です。無料の延長保証をご希望の場合は、購入したプラットフォーム・販売店名、注文番号、製品型番「${product.model}」をサポート窓口へお送りください。登録確認後、保証期間を2年間へ延長します。`,
   } : item);
   const amazonUrl = product.amazonUrl ?? `https://www.amazon.co.jp/s?k=UOUDIO+${encodeURIComponent(product.model)}`;
   const productBrand = product.brand ?? "UOUDIO";
   const productUrl = `${SITE_URL}/products/${product.slug}`;
   const supportSubject = encodeURIComponent(`${productBrand} ${product.model} サポート・延長保証のお問い合わせ`);
-  const supportBody = encodeURIComponent(`下記をご記入ください。\n\nAmazon注文番号：\n製品型番：${product.model}\nお問い合わせ内容：\n症状が分かる写真・動画：添付をお願いします\n`);
+  const supportBody = encodeURIComponent(`下記をご記入ください。\n\n購入したプラットフォーム・販売店名：\n注文番号：\n製品型番：${product.model}\nお問い合わせ内容：\n症状が分かる写真・動画：添付をお願いします\n`);
   const supportMailUrl = `mailto:${SUPPORT_EMAIL}?subject=${supportSubject}&body=${supportBody}`;
   const productImages = [product.image, product.banner, ...(product.gallery?.map((item) => item.src) ?? [])]
     .filter((image): image is string => Boolean(image))
@@ -401,7 +401,7 @@ export default async function ProductPage({ params }: Props) {
               <div>
                 <b>日本語アフターサポート</b>
                 <div className="assurance-contact-links">
-                  <a href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">Amazon注文履歴 ↗</a>
+                  <a href="/support/contact">購入先を問わず受付 →</a>
                   <a href={supportMailUrl}>{SUPPORT_EMAIL} →</a>
                 </div>
               </div>
@@ -490,7 +490,7 @@ export default async function ProductPage({ params }: Props) {
               <div>
                 <small>STANDARD WARRANTY</small>
                 <h3>購入日から1年間のメーカー保証</h3>
-                <p>正常な使用状態で製品に不具合が生じた場合は、保証規定に基づいてサポートします。Amazonの注文番号が購入証明になります。</p>
+                <p>正常な使用状態で製品に不具合が生じた場合は、保証規定に基づいてサポートします。購入先の注文番号または購入明細が購入証明になります。</p>
               </div>
             </div>
 
@@ -498,8 +498,8 @@ export default async function ProductPage({ params }: Props) {
               <p><span>FREE</span> 延長保証サービス</p>
               <h3>簡単なメール登録で、<br />保証期間を2年間へ。</h3>
               <ol>
-                <li><b>1</b><span>Amazonの注文番号を確認</span></li>
-                <li><b>2</b><span>注文番号と型番「{product.model}」を送信</span></li>
+                <li><b>1</b><span>購入先と注文番号を確認</span></li>
+                <li><b>2</b><span>購入先・注文番号・型番「{product.model}」を送信</span></li>
                 <li><b>3</b><span>登録確認メールを保管</span></li>
               </ol>
               <a href={supportMailUrl}>2年延長保証を登録する <span>→</span></a>
@@ -512,10 +512,10 @@ export default async function ProductPage({ params }: Props) {
                 <p>お問い合わせ時に注文番号、製品型番、症状が分かる写真または動画をお送りいただくと、確認がスムーズです。</p>
               </div>
               <div className="support-route-actions">
-                <a className="amazon-support" href="https://www.amazon.co.jp/gp/css/order-history" target="_blank" rel="noreferrer">
-                  <span className="support-icon" aria-hidden="true">A</span>
-                  <span><small>購入情報と一緒に相談</small><b>Amazonの注文履歴から連絡</b></span>
-                  <i>↗</i>
+                <a className="platform-support" href="/support/contact">
+                  <span className="support-icon" aria-hidden="true">✓</span>
+                  <span><small>購入した場所を問わず受付</small><b>サポートに必要な情報を確認</b></span>
+                  <i>→</i>
                 </a>
                 <a className="email-support" href={supportMailUrl}>
                   <span className="support-icon" aria-hidden="true">✉</span>
