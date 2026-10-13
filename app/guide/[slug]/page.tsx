@@ -84,6 +84,12 @@ export default async function GuideArticlePage({ params }: Props) {
                 {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
               </section>
             ))}
+            {article.references && (
+              <section aria-label="説明書とサポート">
+                <h2>説明書とサポート</h2>
+                <ul>{article.references.map((reference) => <li key={reference.href}><a href={reference.href}>{reference.label} →</a></li>)}</ul>
+              </section>
+            )}
           </div>
           <aside className="guide-related-products" aria-label="関連製品">
             <div><p>RELATED PRODUCTS</p><h2>関連する製品と<br />モデル別の使い方</h2></div>

@@ -81,3 +81,23 @@ test("presents platform-neutral support and warranty information", async () => {
   assert.match(product, /購入先の注文番号または購入明細/);
   assert.doesNotMatch(product, /Amazonの注文番号が購入証明/);
 });
+
+test("renders the S16 light article with readable instructions and source links", async () => {
+  const path = "/guide/s16-rgb-light-off-guide";
+  const html = await htmlFor(path);
+  const body = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "").replace(/<!--[\s\S]*?-->/g, "");
+  assert.match(body, /再生／ライトボタンを3回押します/);
+  assert.match(body, /3秒長押し：Bluetooth接続を切断/);
+  assert.match(body, /公開日 2026\.10\.13/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/uoudio\.com\/guide\/s16-rgb-light-off-guide"/);
+  assert.match(html, /<meta name="robots" content="index, follow"/);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+  const article = schemas.find((schema) => schema["@type"] === "Article");
+  assert.equal(article.mainEntityOfPage, `https://uoudio.com${path}`);
+  assert.equal(article.datePublished, "2026-10-13");
+  assert.ok(schemas.some((schema) => schema["@type"] === "BreadcrumbList"));
+  for (const href of ["/manuals/uoudio-s16-manual.pdf", "/support/manuals/s16", "/products/s21", "/support/contact"]) {
+    assert.ok(body.includes(`href="${href}"`), `${href} is a crawlable source link`);
+  }
+  assert.ok((await htmlFor("/guide")).includes(path));
+});

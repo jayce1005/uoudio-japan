@@ -80,6 +80,19 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Manual: Not published yet.
 - Summary: 80W output, IPX7, up to 30 hours playback, six RGB light modes, large carrying handle.
 
+## Usage article: S16 RGB light controls
+
+- Title: S16のRGBライトを消すには？音楽を止めずに操作する方法
+- Official article: https://uoudio.com/guide/s16-rgb-light-off-guide
+- Published: 2026-10-13
+- Model: UOUDIO S16 (product URL slug: s21).
+- Press the play/light button three times to turn off RGB lights; twice switches light modes. Holding it for 3 seconds disconnects Bluetooth. One press plays/pauses or answers/ends a call.
+- The numeric LED display is separate from the RGB lights. Pause music to view battery percentage; volume-button operations show volume and playback shows the connection mode.
+- Up to about 24 hours is a reference at about 30% volume with lights off, not guaranteed playback time.
+- Sources: https://uoudio.com/manuals/uoudio-s16-manual.pdf (button instructions, operation table and playback condition); https://uoudio.com/products/s21 (display behavior).
+- Japanese model guide: https://uoudio.com/support/manuals/s16
+- Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years; see the contact page for registration and support details.
+
 ## Machine-readable discovery
 
 - XML sitemap: https://uoudio.com/sitemap.xml

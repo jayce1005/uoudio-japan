@@ -34,6 +34,10 @@
 - [MG II 接続方法・取扱説明書](https://uoudio.com/support/manuals/mg-ii)
 - [GB 01 接続方法・取扱説明書](https://uoudio.com/support/manuals/gb-01)
 
+## Usage articles
+
+- [S16のRGBライトを消すには？](https://uoudio.com/guide/s16-rgb-light-off-guide): 再生／ライトボタンの3回押しで消灯。2回押し・3秒長押しとの違い、LED表示と再生時間の注意点。2026-10-13公開。
+
 ## Contact
 
 - Customer support: [uoudio_01@outlook.com](mailto:uoudio_01@outlook.com)
