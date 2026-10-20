@@ -93,6 +93,20 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Japanese model guide: https://uoudio.com/support/manuals/s16
 - Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years; see the contact page for registration and support details.
 
+## Usage article: S12 TF card playback troubleshooting
+
+- Title: S12でTFカードの音楽が再生できないときは？容量・モード・ボタンの確認方法
+- Official article: https://uoudio.com/guide/s12-tf-card-playback-guide
+- Published: 2026-10-20
+- Model: UOUDIO S12. The PDF linked by the official S12 product page labels the model S12-1; consult support if the unit or included manual has different labels or controls.
+- TF card capacity: up to 32GB. Audio file formats and card filesystems are not specified in this manual; do not infer compatibility or recommend formatting.
+- Power button (①): hold 2 seconds to power on/off, double press to switch Bluetooth/TF, single press for play/pause. Triple press clears Bluetooth pairing; hold 10 seconds resets. These latter operations are not the TF mode switch.
+- Plus/minus (③/④): short press adjusts volume; long press skips next/previous track. Light button (②) double press enters/exits TWS, not TF mode.
+- Check card capacity, reinsert card, switch mode, check pause and volume. If unresolved, contact support with model, card capacity, file extension, attempted steps, symptoms and purchase details.
+- Sources: https://uoudio.com/manuals/uoudio-s12-manual.pdf (page 1 Japanese button instructions and TF note); https://uoudio.com/products/s12 (official PDF association and playback inputs).
+- Japanese model guide: https://uoudio.com/support/manuals/s12
+- Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years; see contact page for details.
+
 ## Machine-readable discovery
 
 - XML sitemap: https://uoudio.com/sitemap.xml
