@@ -36,6 +36,8 @@
 
 ## Usage articles
 
+- [S11で音量を変えたいのに曲が飛ぶのはなぜ？](https://uoudio.com/guide/s11-volume-track-buttons-guide): ＋／－の短押しは音量調整、長押しは次の曲／前の曲。ボタン位置と押し方、改善しないときの相談方法。2026-10-22公開。
+
 - [S12でTFカードの音楽が再生できないときは？](https://uoudio.com/guide/s12-tf-card-playback-guide): 最大32GB、電源ボタン2回押しでBluetooth／TF切替、再生・音量・曲送りの確認。形式は説明書に明記なし。2026-10-20公開。
 
 - [S16のRGBライトを消すには？](https://uoudio.com/guide/s16-rgb-light-off-guide): 再生／ライトボタンの3回押しで消灯。2回押し・3秒長押しとの違い、LED表示と再生時間の注意点。2026-10-13公開。

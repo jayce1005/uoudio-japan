@@ -107,6 +107,20 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Japanese model guide: https://uoudio.com/support/manuals/s12
 - Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years; see contact page for details.
 
+## Usage article: S11 volume and track button controls
+
+- Title: S11で音量を変えたいのに曲が飛ぶのはなぜ？短押しと長押しの使い分け
+- Official article: https://uoudio.com/guide/s11-volume-track-buttons-guide
+- Published: 2026-10-22
+- Model: UOUDIO S11.
+- Plus (③): short press increases volume; long press skips to the next track. Minus (④): short press decreases volume; long press returns to the previous track.
+- To adjust volume, press briefly and release, then check the result. If a track changes unintentionally, release the button before checking a short press. Do not keep holding it while waiting for volume to change.
+- Triangle button (②): single press plays/pauses music; during a call, it answers/ends the call. Check music controls outside a call.
+- If short presses still change tracks, controls continue after release, or buttons do not respond, contact support with model, playback input, connected device, operation, symptoms, purchase details and a video if possible. Do not infer identical control behavior for every playback input.
+- Sources: https://uoudio.com/manuals/uoudio-s11-manual.pdf (page 1 Japanese key-functions list and button diagram); https://uoudio.com/products/s11 (model and playback inputs).
+- Japanese model guide: https://uoudio.com/support/manuals/s11
+- Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years; see contact page for details.
+
 ## Machine-readable discovery
 
 - XML sitemap: https://uoudio.com/sitemap.xml
