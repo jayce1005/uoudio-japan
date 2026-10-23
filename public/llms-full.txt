@@ -27,7 +27,8 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Official page: https://uoudio.com/products/s21
 - Setup guide: https://uoudio.com/support/manuals/s16
 - Manual: https://uoudio.com/manuals/uoudio-s16-manual.pdf
-- Summary: 20W output, DSP sound processing, Bluetooth 5.4, up to 24 hours playback, IPX6, digital display for mode/battery/volume, 2 EQ modes, RGB light, TWS, AUX/USB/TF card, USB Type-C, strap.
+- Summary: 20W output, DSP sound processing, Bluetooth 5.4, up to 24 hours playback, IPX7, digital display for mode/battery/volume, 2 EQ modes, RGB light, TWS, AUX/USB/TF card, USB Type-C, strap.
+- Model update: Current S16 has IPX7 water resistance and updated product imagery, confirmed by the brand owner on 2026-10-23. Keep the port cover closed; avoid underwater use, washing and charging while wet.
 - Playback note: Up to 24 hours at about 30% volume with RGB light off; actual time varies.
 
 ### UOUDIO S12

@@ -15,7 +15,7 @@
 
 ## Products
 
-- [UOUDIO S16](https://uoudio.com/products/s21): 20W、DSP、最大24時間、IPX6、Bluetooth 5.4
+- [UOUDIO S16](https://uoudio.com/products/s21): 20W、DSP、最大24時間、IPX7、Bluetooth 5.4
 - [UOUDIO S12](https://uoudio.com/products/s12): 15W、DSP、最大15時間、IPX7、Bluetooth 5.4
 - [UOUDIO X2 PRO](https://uoudio.com/products/s19): 30W、IPX7、最大20時間、RGB、TWS
 - [UOUDIO S20](https://uoudio.com/products/s20): 20W、DSP、最大24時間、IPX7、Bluetooth 5.4

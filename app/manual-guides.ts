@@ -29,9 +29,9 @@ export const manualGuides: ManualGuide[] = [
     brand: "UOUDIO",
     title: "UOUDIO S16 取扱説明書・接続方法",
     description: "UOUDIO S16のBluetooth接続、TWSペアリング、EQ切替、RGBライト、リセット、音量・電池表示、AUX・USB・TFカードの使い方を案内します。",
-    summary: "Bluetooth 5.4、20Wピーク出力、DSP、最大約24時間再生、IPX6に対応するS16の日本語操作ガイドです。",
+    summary: "Bluetooth 5.4、20Wピーク出力、DSP、最大約24時間再生、IPX7に対応するS16の日本語操作ガイドです。",
     manualUrl: "/manuals/uoudio-s16-manual.pdf",
-    updatedAt: "2026-10-10",
+    updatedAt: "2026-10-23",
     keywords: ["S16 接続方法", "S16 リセット", "S16 TWS", "S16 ライト 消し方", "S16 取扱説明書"],
     connectionSteps: commonConnectionSteps("S16"),
     controls: [
@@ -47,7 +47,7 @@ export const manualGuides: ManualGuide[] = [
       { question: "TWSで2台を接続できません。", answer: "スマートフォンとの接続前に同じS16を2台起動し、EQボタンを2回押してスピーカー同士を接続してからスマートフォンへ接続します。" },
       { question: "バッテリー残量が表示されません。", answer: "音楽を一時停止すると、LEDにバッテリー残量がパーセントで表示されます。" },
     ],
-    safety: ["入力は5V 1Aまたは5V 2Aを使用してください。", "IPX6は水中使用や丸洗いには対応しません。", "端子が濡れた状態では充電せず、十分に乾かしてください。"],
+    safety: ["入力は5V 1Aまたは5V 2Aを使用してください。", "IPX7対応の現行モデルも、水中使用や丸洗いは避け、端子カバーを確実に閉じてください。", "端子が濡れた状態では充電せず、十分に乾かしてください。"],
   },
   {
     slug: "s12",
