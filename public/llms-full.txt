@@ -122,6 +122,20 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Japanese model guide: https://uoudio.com/support/manuals/s11
 - Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years; see contact page for details.
 
+## Usage article: S16 EQ sound switching
+
+- Title: S16の音質を切り替えるには？EQボタンとTWS操作の違い
+- Official article: https://uoudio.com/guide/s16-eq-sound-switch-guide
+- Published: 2026-10-27
+- Model: UOUDIO S16 (product URL slug: s21).
+- EQ button (⑦ in the Japanese diagram): one press switches EQ; two presses connect/disconnect TWS. Product data confirms two EQ modes. Do not infer mode names, indicators, notification sounds or persistence after power-off; these are not specified in this manual.
+- Play a familiar track at a comfortable volume, press EQ once and release, then listen before pressing once again. Compare the same passage without changing volume. A second speaker is not needed for EQ switching.
+- TWS uses two S16 units as left/right channels. Double pressing EQ during TWS use disconnects TWS. For TWS setup, power on both units, double press EQ to pair speakers, then connect the Bluetooth device.
+- If the button does not respond or unintended disconnection/dropouts persist, contact support with model, playback input, connected device, single-unit/TWS use, attempted operation, symptoms and purchase details.
+- Sources: https://uoudio.com/manuals/uoudio-s16-manual.pdf (page 1 Japanese diagram ⑦, operation table and TWS section); https://uoudio.com/products/s21 (two EQ modes).
+- Japanese model guide: https://uoudio.com/support/manuals/s16
+- Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years; see contact page for details.
+
 ## Machine-readable discovery
 
 - XML sitemap: https://uoudio.com/sitemap.xml
