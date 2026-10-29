@@ -36,6 +36,8 @@
 
 ## Usage articles
 
+- [S12が約10分で勝手に切れるのはなぜ？](https://uoudio.com/guide/s12-auto-power-off-guide): 未接続10分後の自動電源オフ、再起動と接続確認、一時停止との違い、相談の目安。2026-10-29公開。
+
 - [S16の音質を切り替えるには？](https://uoudio.com/guide/s16-eq-sound-switch-guide): EQボタン1回押しで2種類の音質を切替。2回押しはTWS接続／切断。聴き比べ方と操作の注意点。2026-10-27公開。
 
 - [S11で音量を変えたいのに曲が飛ぶのはなぜ？](https://uoudio.com/guide/s11-volume-track-buttons-guide): ＋／－の短押しは音量調整、長押しは次の曲／前の曲。ボタン位置と押し方、改善しないときの相談方法。2026-10-22公開。

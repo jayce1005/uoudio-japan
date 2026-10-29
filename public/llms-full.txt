@@ -151,3 +151,17 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Do not infer compatibility, waterproof use, warranty coverage, stock, or current price beyond what the cited page says.
 - Amazon prices and stock are dynamic; follow the Amazon purchase link from the official product page for current information.
 - Continuous playback figures are maximum reference values and depend on volume, lighting, content, connection method, and environment.
+
+## Usage article: S12 automatic power-off
+
+- Title: S12が約10分で勝手に切れるのはなぜ？自動電源オフと確認手順
+- Official article: https://uoudio.com/guide/s12-auto-power-off-guide
+- Published: 2026-10-29
+- Model: UOUDIO S12. The linked official PDF is labeled S12-1.
+- Manual condition: automatic power-off after 10 minutes without connection to a device. Do not equate paused playback with disconnection or assume this explains shutdown during playback.
+- Restart: hold power button ① for 2 seconds, then connect from the phone Bluetooth settings and confirm connection before playback. One press plays/pauses.
+- The manual does not document a way to disable automatic power-off. Triple press clears pairing; a 10-second hold resets. These do not disable automatic power-off.
+- Record connection/playback state, time until shutdown, device, charging state and attempted operations if shutdown recurs while connected or playing. Contact support if the unit will not start or shuts down immediately.
+- Source: https://uoudio.com/manuals/uoudio-s12-manual.pdf page 1 Japanese note 1 and key functions; https://uoudio.com/support/manuals/s12
+- Product: https://uoudio.com/products/s12
+- Support: https://uoudio.com/support/contact — uoudio_01@outlook.com. Warranty: 1 year, free extension to 2 years.
