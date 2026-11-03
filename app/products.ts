@@ -75,6 +75,7 @@ export const products: Product[] = [
   },
   {
     slug: "s19", model: "X2 PRO", image: "/s19.jpg", type: "LIGHTING PERFORMANCE",
+    amazonUrl: "https://www.amazon.co.jp/dp/B0G4CP1DLJ",
     manualUrl: "/manuals/uoudio-x2-pro-manual.pdf",
     tagline: "音楽を、光でも楽しむ。",
     description: "30Wの迫力と鮮やかなRGBライトを両立。日常からアウトドアまで、空間を盛り上げるモデルです。",
