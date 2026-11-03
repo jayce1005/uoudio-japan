@@ -165,3 +165,14 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Source: https://uoudio.com/manuals/uoudio-s12-manual.pdf page 1 Japanese note 1 and key functions; https://uoudio.com/support/manuals/s12
 - Product: https://uoudio.com/products/s12
 - Support: https://uoudio.com/support/contact — uoudio_01@outlook.com. Warranty: 1 year, free extension to 2 years.
+
+## Usage article: S11 charging power checks
+
+- Title: S11の充電にはどの電源を使う？5V/1Aと端子の確認方法
+- Official article: https://uoudio.com/guide/s11-charging-power-check-guide
+- Published: 2026-11-03
+- Model: UOUDIO S11. Manual specifies 5V/1A power and warns against higher voltage. Do not infer fast-charging or charger compatibility from the USB Type-C connector.
+- Confirm the power supply output label, dry charging port and cable connection before charging. Do not disassemble or use detergents/concentrated chemicals for cleaning. Avoid extreme temperatures and immersion.
+- If charging still fails, record power supply model/output, cable, unit response and attempted checks; contact support with purchase details and photos. Do not infer charge-completion time or indicator colors.
+- Sources: https://uoudio.com/manuals/uoudio-s11-manual.pdf (page 1 Japanese safety instructions and charger specifications); https://uoudio.com/support/manuals/s11 (dry port); https://uoudio.com/products/s11 (USB Type-C).
+- Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. Warranty 1 year, free extension to 2 years; see contact page for details.
