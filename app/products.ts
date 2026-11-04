@@ -268,6 +268,7 @@ export const products: Product[] = [
   },
   {
     slug: "gb-mini", model: "GB 01", image: "/gb-mini-product.jpg", type: "RETRO MINI / DSP SOUND",
+    amazonUrl: "https://www.amazon.co.jp/dp/B0H2V56CZL",
     manualUrl: "/manuals/uoudio-gb01-manual.pdf",
     tagline: "手のひらサイズに、豊かな10Wサウンド。",
     description: "10WフルレンジドライバーとDSP音質補正を搭載した、レザー調シリコンボディのポータブルBluetoothスピーカー。IPX6防水、TWS、最大12時間再生、3種類のライト、AUX・TFカード・USB再生に対応します。",
