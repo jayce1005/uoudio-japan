@@ -176,3 +176,11 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - If charging still fails, record power supply model/output, cable, unit response and attempted checks; contact support with purchase details and photos. Do not infer charge-completion time or indicator colors.
 - Sources: https://uoudio.com/manuals/uoudio-s11-manual.pdf (page 1 Japanese safety instructions and charger specifications); https://uoudio.com/support/manuals/s11 (dry port); https://uoudio.com/products/s11 (USB Type-C).
 - Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. Warranty 1 year, free extension to 2 years; see contact page for details.
+
+## UOUDIO S17
+
+- Product: https://uoudio.com/products/s17
+- Japanese setup guide: https://uoudio.com/support/manuals/s17
+- Original manual PDF: https://uoudio.com/manuals/uoudio-s17-manual.pdf
+- Current sales specifications confirmed by brand owner on 2026-11-17: 10W, DSP, Bluetooth 5.4, IPX6, 4 RGB modes plus OFF, up to about 10 hours at lights off / 30% volume, 1800mAh, about 300g, TWS with two S17 units, TF up to 32GB MP3, 3.5mm AUX, USB Type-C charging 5V/1A. USB is charging, not USB-memory playback.
+- Original PDF has different power/light-count wording; use current product page for current sales specifications. No price supplied.

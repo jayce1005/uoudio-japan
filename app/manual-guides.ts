@@ -22,6 +22,81 @@ const commonConnectionSteps = (model: string) => [
 ];
 
 export const manualGuides: ManualGuide[] = [
+{
+  "slug": "s17",
+  "productSlug": "s17",
+  "model": "S17",
+  "brand": "UOUDIO",
+  "title": "UOUDIO S17 取扱説明書・接続方法",
+  "description": "S17のBluetooth接続、TWS、入力切替、音量操作、TFカード、Type-C充電を案内します。",
+  "summary": "10W・DSP・IPX6・約300gのS17の操作ガイドです。仕様は最新の商品情報をご確認ください。",
+  "manualUrl": "/manuals/uoudio-s17-manual.pdf",
+  "updatedAt": "2026-11-17",
+  "keywords": [
+    "S17 接続方法",
+    "S17 TWS",
+    "S17 取扱説明書"
+  ],
+  "connectionSteps": [
+    {
+      "title": "電源を入れる",
+      "text": "電源ボタンを長押しし、青いライトが点滅するペアリング待機状態にします。"
+    },
+    {
+      "title": "S17を選ぶ",
+      "text": "スマートフォンのBluetoothをオンにし、検索結果から「S17」を選択します。"
+    },
+    {
+      "title": "接続を確認する",
+      "text": "接続すると青いライトが点滅から点灯に変わります。音量を控えめにして再生してください。"
+    }
+  ],
+  "controls": [
+    {
+      "label": "電源",
+      "action": "電源ボタンを長押ししてオン／オフ"
+    },
+    {
+      "label": "入力切替",
+      "action": "電源ボタンを短く押してBluetooth・TF・AUXを切替"
+    },
+    {
+      "label": "TWS",
+      "action": "電源ボタンを2回押してTWS接続／切断。同じS17を2台使用"
+    },
+    {
+      "label": "音量・曲送り",
+      "action": "＋／－を短く押すと音量調整。＋長押しで次の曲、－長押しで前の曲"
+    },
+    {
+      "label": "再生・ライト",
+      "action": "再生／ライトボタンを短く押して再生／一時停止、2回押してライト切替"
+    },
+    {
+      "label": "リセット",
+      "action": "電源ボタンを3回押す。リセットと電源オンは電源ボタンを10秒長押し"
+    }
+  ],
+  "troubleshooting": [
+    {
+      "question": "TFカードの対応条件は？",
+      "answer": "最大32GB、MP3形式です。"
+    },
+    {
+      "question": "充電の目安とランプは？",
+      "answer": "5V/1AのType-C充電に対応。説明書では約2時間が目安です。充電中は赤ランプが点灯し、完了すると消灯します。"
+    },
+    {
+      "question": "PDFと商品情報で仕様の表記が違います。",
+      "answer": "掲載PDFと最新の商品情報には出力・ライト数の表記差があります。現在の販売仕様は製品ページ（10W・4種類＋OFF）をご確認ください。操作や本体の表示が異なる場合はサポートへお問い合わせください。"
+    }
+  ],
+  "safety": [
+    "端子カバーをしっかり閉じて使用し、水没や丸洗いを避けてください。",
+    "充電前に端子を乾燥させ、5V/1A電源を使用してください。",
+    "分解や端子への異物の挿入、高温の場所での保管を避けてください。"
+  ]
+},
   {
     slug: "s16",
     productSlug: "s21",

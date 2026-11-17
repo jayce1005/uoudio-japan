@@ -18,6 +18,145 @@ export type Product = {
 };
 
 export const products: Product[] = [
+{
+  "slug": "s17",
+  "model": "S17",
+  "image": "/s17-main.jpg",
+  "type": "10W / DSP / COMPACT",
+  "tagline": "軽やかに持ち出す、音と光。",
+  "description": "10W出力とDSPを備えた約300gのポータブルBluetoothスピーカー。Bluetooth 5.4、IPX6防水、4種類のRGBライトと消灯、TWS、TFカード・AUX再生に対応します。",
+  "tags": [
+    "10W + DSP",
+    "約300g",
+    "最大約10時間",
+    "IPX6"
+  ],
+  "amazonUrl": "https://www.amazon.co.jp/dp/B0G13XS3S3",
+  "manualUrl": "/manuals/uoudio-s17-manual.pdf",
+  "specs": [
+    {
+      "label": "出力",
+      "value": "10W"
+    },
+    {
+      "label": "音質処理",
+      "value": "DSPデジタル音声処理"
+    },
+    {
+      "label": "Bluetooth",
+      "value": "Bluetooth 5.4"
+    },
+    {
+      "label": "連続再生",
+      "value": "最大約10時間",
+      "note": "ライトOFF・音量30％での目安。音量・ライト・使用環境により異なります"
+    },
+    {
+      "label": "バッテリー",
+      "value": "1800mAh"
+    },
+    {
+      "label": "ライト",
+      "value": "4種類のRGBライト・消灯可能"
+    },
+    {
+      "label": "防水性能",
+      "value": "IPX6",
+      "note": "端子カバーを閉じて使用。水没には対応していません"
+    },
+    {
+      "label": "ステレオ",
+      "value": "TWS対応",
+      "note": "同じS17が2台必要です"
+    },
+    {
+      "label": "再生方法",
+      "value": "Bluetooth / 3.5mm AUX / TFカード"
+    },
+    {
+      "label": "TFカード",
+      "value": "最大32GB・MP3形式"
+    },
+    {
+      "label": "充電",
+      "value": "USB Type-C・5V / 1A"
+    },
+    {
+      "label": "充電時間",
+      "value": "約2時間",
+      "note": "説明書記載の目安"
+    },
+    {
+      "label": "重量",
+      "value": "約300g"
+    },
+    {
+      "label": "サイズ",
+      "value": "直径76 × 高さ116.5mm"
+    },
+    {
+      "label": "付属品",
+      "value": "ストラップ・Type-C充電ケーブル・取扱説明書"
+    }
+  ],
+  "features": [
+    {
+      "title": "10W出力・DSPサウンド",
+      "text": "コンパクトなボディに10W出力とDSP音声処理を搭載。自宅でも外出先でも音楽を楽しめます。"
+    },
+    {
+      "title": "最大約10時間再生",
+      "text": "ライトOFF・音量30％で最大約10時間。1800mAhバッテリーとType-C充電に対応します。"
+    },
+    {
+      "title": "4種類のRGBライト",
+      "text": "音楽に合わせた光の演出を楽しめ、ライトを消して使うこともできます。"
+    },
+    {
+      "title": "TWS・多彩な再生方法",
+      "text": "同じS17を2台つなぐTWSに対応。Bluetoothのほか、TFカードと3.5mm AUX入力も選べます。"
+    },
+    {
+      "title": "約300g・IPX6防水",
+      "text": "ストラップ付きの軽量設計。端子カバーを閉じて使用し、水没や濡れた状態での充電は避けてください。"
+    }
+  ],
+  "banner": "/s17-banner.jpg",
+  "gallery": [
+    {
+      "src": "/s17-sound.jpg",
+      "alt": "S17 10Wサウンド・内部構造はイメージ"
+    },
+    {
+      "src": "/s17-dsp.jpg",
+      "alt": "S17 DSPデジタル音声処理のイメージ"
+    },
+    {
+      "src": "/s17-battery.jpg",
+      "alt": "S17 最大約10時間再生と1800mAhバッテリー"
+    },
+    {
+      "src": "/s17-rgb.jpg",
+      "alt": "S17 4種類のRGBライトと消灯"
+    },
+    {
+      "src": "/s17-tws.jpg",
+      "alt": "S17 同じS17を2台接続するTWSステレオ"
+    },
+    {
+      "src": "/s17-waterproof.jpg",
+      "alt": "S17 IPX6防水・端子カバーを閉じて使用"
+    },
+    {
+      "src": "/s17-inputs.jpg",
+      "alt": "S17 AUX入力・TFカード・Type-C充電端子"
+    },
+    {
+      "src": "/s17-portable.jpg",
+      "alt": "S17 約300g・ストラップ付きの携帯設計"
+    }
+  ]
+},
   {
     slug: "s2", model: "S2", image: "/s2.jpg", type: "POWERFUL OUTDOOR",
     tagline: "大きな音で、外へ出よう。",
