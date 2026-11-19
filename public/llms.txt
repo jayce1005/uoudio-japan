@@ -36,6 +36,8 @@
 
 ## Usage articles
 
+- [S20 AUXで音が出ないとき](https://uoudio.com/guide/s20-aux-no-sound-guide): 3.5mm端子、Mボタンの入力切替、再生状態の確認。2026-11-19公開。
+
 - [S11の充電にはどの電源を使う？](https://uoudio.com/guide/s11-charging-power-check-guide): 5V/1A電源、Type-C端子の乾燥、充電できないときの確認とサポート相談。2026-11-03公開。
 
 - [S12が約10分で勝手に切れるのはなぜ？](https://uoudio.com/guide/s12-auto-power-off-guide): 未接続10分後の自動電源オフ、再起動と接続確認、一時停止との違い、相談の目安。2026-10-29公開。

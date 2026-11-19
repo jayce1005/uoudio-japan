@@ -177,6 +177,15 @@ UOUDIOは、ポータブルBluetoothスピーカーを中心に、毎日の音�
 - Sources: https://uoudio.com/manuals/uoudio-s11-manual.pdf (page 1 Japanese safety instructions and charger specifications); https://uoudio.com/support/manuals/s11 (dry port); https://uoudio.com/products/s11 (USB Type-C).
 - Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. Warranty 1 year, free extension to 2 years; see contact page for details.
 
+## Usage article: S20 AUX no sound checks
+
+- Official article: https://uoudio.com/guide/s20-aux-no-sound-guide
+- Published: 2026-11-19. Model: S20; official PDF labels it S20-1.
+- Check 3.5mm AUX connection, playback and volume. USB Type-C is for charging.
+- M button (②): single press switches Bluetooth/TF/AUX; double press enters/exits TWS. Switching order and notification sounds are unspecified. Do not infer AUX track-control or adapter compatibility.
+- Sources: https://uoudio.com/manuals/uoudio-s20-manual.pdf (Japanese key functions); https://uoudio.com/products/s20 (ports); https://uoudio.com/support/manuals/s20
+- Support: https://uoudio.com/support/contact ; uoudio_01@outlook.com. 1-year warranty, free extension to 2 years.
+
 ## UOUDIO S17
 
 - Product: https://uoudio.com/products/s17
